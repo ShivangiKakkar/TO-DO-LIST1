@@ -7,6 +7,10 @@
     <title>Todo-Bulma</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <style>
+      :checked + span {
+          text-decoration: line-through;
+      }</style>
 </head>
 <body>
     <nav class="navbar is-primary">
@@ -121,7 +125,7 @@
                         <!-- UPPER -->
                         <div class="tabs is-boxed">
                             <ul>
-                              <li class="is-active">
+                              <li>
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-clipboard-list" aria-hidden="true"></i></span>
                                   <span>Current</span>
@@ -139,7 +143,7 @@
                                   <span>Upcoming</span>
                                 </a>
                               </li>
-                              <li>
+                              <li class="is-active">
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar" aria-hidden="true"></i></span>
                                   <span>All</span>
@@ -148,36 +152,39 @@
                             </ul>
                         </div>
                       <div class="panel-block">
-                          <p class="control has-icons-left">
+                        <div class="field has-addons " style="width: 100%;">
+                          <div class="control has-icons-left is-expanded">
                             <input class="input is-primary field" type="text" placeholder="New Task">
                             <span class="icon is-left">
                               <i class="fas fa-calendar-plus" aria-hidden="true"></i>
-                              <div class="buttons has-addons is-right">
-                                <button class="button is-primary">Add</button>
-                              </div>
                             </span>
-                          </p>
+                          </div>
+                            <div class="control">
+                              <button class="button is-primary">Add</button>
+                            </div>
+                          </div>
                       </div>
-                        <label class="panel-block">
-                          <input type="checkbox">
-                          Make Bulma great again
-                        </label>
-                        <label class="panel-block">
-                          <input type="checkbox">
-                            Add some more features
-                        </label>
-                        <label class="panel-block">
-                          <input type="checkbox">
-                            Make a github account
-                        </label>
-                        <label class="panel-block">
-                          <input type="checkbox">
-                            Learn how to use github
-                        </label>
-                        <label class="panel-block">
-                          <input type="checkbox">
-                            add a .gitignore file
-                        </label>  
+                      <!-- DIV  -->
+                          <label class="panel-block">
+                            <input type="checkbox" checked/>
+                            <span>Make Bulma great again</span>
+                          </label>
+                          <label class="panel-block">
+                            <input type="checkbox" />
+                              <span>Add some more features</span>
+                          </label>
+                          <label class="panel-block">
+                            <input type="checkbox" />
+                            <span>Make a github account</span>
+                          </label>
+                          <label class="panel-block">
+                            <input type="checkbox" />
+                            <span>Learn how to use github</span>
+                          </label>
+                          <label class="panel-block">
+                            <input type="checkbox" />
+                            <span>add a .gitignore file</span>
+                          </label>
                     </article>
                   </div>
                       <!-- ARTICLE ENDS  -->
@@ -226,6 +233,32 @@
             </div>       
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(".tabs li").click(function(){
+          $(".tabs li.is-active").removeClass("is-active");
+            $(this).addClass("is-active");
 
+            
+            if(this.text.trim == "Current"){
+              this.showAll();
+              $(".checked").closest(".panel-block").hide();
+            } 
+            else if(this.text.trim == "Completed"){
+              this.showAll();
+              $("input:not(.checked)").closest(".panel-block").hide();
+            } 
+            else if(this.text.trim == "Upcoming"){
+              this.showAll(); 
+            } 
+            else if(this.text.trim == "All"){
+              this.showAll();
+            } 
+            else {
+              return null;
+            }
+            
+        });
+    </script>
 </body>
 </html>
