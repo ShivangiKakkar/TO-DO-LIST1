@@ -129,25 +129,25 @@
                               <li>
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-clipboard-list"></i></span>
-                                  <span>Current</span>
+                                  <span id="current">Current</span>
                                 </a>
                               </li>
                               <li>
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar-times"></i></span>
-                                  <span>Completed</span>
+                                  <span id="completed">Completed</span>
                                 </a>
                               </li>
                               <li>
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar-day"></i></span>
-                                  <span>Upcoming</span>
+                                  <span id="upcoming">Upcoming</span>
                                 </a>
                               </li>
                               <li class="is-active">
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar"></i></span>
-                                  <span>All</span>
+                                  <span id="all">All</span>
                                 </a>
                               </li>
                             </ul>
@@ -238,12 +238,11 @@
           $(".tabs li").click(function(){
             $(".tabs li.is-active").removeClass("is-active");
             $(this).addClass("is-active");
-
-
+            
             switch ($(this).text().trim()) {
                 case "Current":
                     showAll();
-                    $(":checked").closest(".panel-block").hide();
+                    $(":checked").parent(".panel-block").hide();
                     break;
                 case "Completed":
                     showAll();
@@ -257,7 +256,6 @@
                     break;
             }
           });
-
           function showAll() {
             $(".panel-block").show();
           }
