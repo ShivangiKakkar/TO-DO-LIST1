@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <style>
-      .is-done {
+       .is-done {
           text-decoration: line-through;
       }
     </style>
@@ -128,36 +128,38 @@
                         <div class="tabs is-boxed">
                             <ul>
                               <li>
-                                <a>
+                                <a :class="{ 'is-active': currentTab == 'Current'}" @click="changeTab('Current')">
                                   <span class="icon is-small"><i class="fas fa-clipboard-list"></i></span>
-                                  <span :class="{ 'is-active': currentTab == 'Current'}" @click="changeTab('Current')">Current</span>
+                                  <span>Current</span>
                                 </a>
                               </li>
-                              <li>
+                              <li :class="{ 'is-active': currentTab == 'Completed'}" @click="changeTab('Completed')">
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar-times"></i></span>
-                                  <span :class="{ 'is-active': currentTab == 'Completed'}" @click="changeTab('Completed')">Completed</span>
+                                  <span>Completed</span>
                                 </a>
                               </li>
-                              <li>
+                              <li :class="{ 'is-active': currentTab == 'Upcoming'}" @click="changeTab('Upcoming')">
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar-day"></i></span>
-                                  <span :class="{ 'is-active': currentTab == 'Upcoming'}" @click="changeTab('Upcoming')">Upcoming</span>
+                                  <span>Upcoming</span>
                                 </a>
                               </li>
-                              <li class="is-active">
+                              <li :class="{ 'is-active': currentTab == 'All'}" @click="changeTab('All')">
                                 <a>
                                   <span class="icon is-small"><i class="fas fa-calendar"></i></span>
-                                  <span :class="{ 'is-active': currentTab == 'All'}" @click="changeTab('All')">All</span>
+                                  <span>All</span>
                                 </a>
                               </li>
                             </ul>
                         </div>
                       <div class="panel-block">
+
                         <!-- add tsks -->
+                        <form @submit.prevent="addTask">
                         <div class="field has-addons " style="width: 100%;">
                           <div class="control has-icons-left is-expanded">
-                            <input class="input is-primary field" type="text" placeholder="New Task">
+                            <input class="input is-primary field" type="text" placeholder="New Task" v-model="newTitleName">
                             <span class="icon is-left">
                               <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                             </span>
@@ -166,6 +168,7 @@
                               <button class="button is-primary">Add</button>
                             </div>
                           </div>
+                        </form>
                       </div>
                       <!-- DIV  -->
                           <label class="panel-block" v-for="task in pendingTasks" :key="task.title" :class="{ 'is-done': currentTab != 'Completed' && task.isDone }">
@@ -230,10 +233,10 @@
                 return {
                     message: 'Hey there! I am using Vue!',
                     currentTab: 'All',
-                    newTaskName: ' ',
+                    newTitleName: '',
                     tasks: [
-                        { title: 'Make Bulma great again', isDone: true },
-                        { title: 'Add some more features', isDone: false },
+                        { title: 'Make Bulma great again', isDone: false},
+                        { title: 'Add some more features', isDone: true },
                         { title: 'Make a github account', isDone: false },
                         { title: 'Learn how to use github', isDone: false },
                         { title: 'add a .gitignore file', isDone: false },
@@ -247,10 +250,10 @@
                 },
                 addTask() {
                     this.tasks.unshift({
-                        title: this.newTaskName,
+                        title: this.newTitleName,
                         done: false
                     });
-                    this.newTitleName = ' ';
+                    this.newTitleName = '';
                 }
             },
             computed: {
