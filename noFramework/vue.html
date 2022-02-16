@@ -11,16 +11,35 @@
       .is-done{
           text-decoration: line-through;
       }
+      .calendar-icon {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+      .add-button {
+        font-weight: bold;
+      }
+      .card-content {
+        padding: 0.5rem;
+      }
+      .table {
+        background-color: rgb(232, 245, 250);
+      }
+      table {
+        border: 1px solid #dddddd;
+      }
+      .time {
+        font-weight: bold;
+      }
     </style>
 </head>
 <body>
   <div id="app">
     <nav class="navbar is-warning">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          <a class="navbar-item" href="">
+            <img src="https://img.icons8.com/external-becris-solid-becris/64/000000/external-calendar-literary-genres-becris-solid-becris.png"/>
+            <span class="calendar-icon">Calendar</span>
           </a>
-
 
           <div class="navbar-burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -99,7 +118,7 @@
                     <div class="card">
                         <header class="card-header">
                           <p class="card-header-title">
-                            Component
+                            February
                           </p>
                           <button class="card-header-icon" aria-label="more options">
                             <span class="icon">
@@ -109,10 +128,57 @@
                         </header>
                         <div class="card-content">
                           <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                            <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <table class="table">
+                              <tr>
+                                <th>M</th>
+                                <th>T</th>
+                                <th>W</th>
+                                <th>T</th>
+                                <th>F</th>
+                                <th>S</th>
+                                <th>S</th>
+                              </tr>
+                              <tr>
+                                <td>-</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                              </tr>
+                              <tr>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                              </tr>
+                              <tr>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                              </tr>
+                              <tr>
+                                <td>28</td>
+                              </tr>
+                            </table>
+                            <time class= "time" datetime="2016-1-1">11:09 PM - 16 Feb 2022</time>
                           </div>
                         </div>
                         <footer class="card-footer">
@@ -161,13 +227,13 @@
                         <form @submit.prevent="addTask" style="flex: 1;">
                         <div class="field has-addons " style="width: 100%;">
                           <div class="control has-icons-left is-expanded">
-                            <input class="input is-primary field" type="text" placeholder="New Task" v-model="newTitleName">
+                            <input class="input is-dark field" type="text" placeholder="New Task" v-model="newTitleName">
                             <span class="icon is-left">
                               <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                             </span>
                           </div>
                             <div class="control">
-                              <button class="button is-primary">Add</button>
+                              <button class="button is-dark add-button">Add</button>
                             </div>
                           </div>
                         </form>
@@ -186,44 +252,88 @@
                       <!-- ARTICLE ENDS  -->
                   
                 <!-- RIGHT PANEL -->
-                <div class="column is-one-quarter">
-                    <h2 class="title">Table of contents</h2>
-                    <h3 class="subtitle">Intra-page navigation</h3>
-                    <aside class="menu">
-                        <p class="menu-label">
-                          General
-                        </p>
-                        <ul class="menu-list">
-                          <li><a>Dashboard</a></li>
-                          <li><a>Customers</a></li>
-                        </ul>
-                        <p class="menu-label">
-                          Administration
-                        </p>
-                        <ul class="menu-list">
-                          <li><a>Team Settings</a></li>
-                          <li>
-                            <a class="is-active">Manage Your Team</a>
-                            <ul>
-                              <li><a>Members</a></li>
-                              <li><a>Plugins</a></li>
-                              <li><a>Add a member</a></li>
-                            </ul>
-                          </li>
-                          <li><a>Invitations</a></li>
-                          <li><a>Cloud Storage Environment Settings</a></li>
-                          <li><a>Authentication</a></li>
-                        </ul>
-                        <p class="menu-label">
-                          Transactions
-                        </p>
-                        <ul class="menu-list">
-                          <li><a>Payments</a></li>
-                          <li><a>Transfers</a></li>
-                          <li><a>Balance</a></li>
-                        </ul>
-                      </aside>
-                </div>
+                
+                  <div class="container">
+                    <div class="column is-one-quarter">
+                      <div class="columns">
+                          <div class="column">
+                              <div class="card">
+                                  <header class="card-header">
+                                    <p class="card-header-title">
+                                      March
+                                    </p>
+                                    <button class="card-header-icon" aria-label="more options">
+                                      <span class="icon">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                      </span>
+                                    </button>
+                                  </header>
+                                  <div class="card-content">
+                                    <div class="content">
+                                      <table class="table">
+                                        <tr>
+                                          <th>M</th>
+                                          <th>T</th>
+                                          <th>W</th>
+                                          <th>T</th>
+                                          <th>F</th>
+                                          <th>S</th>
+                                          <th>S</th>
+                                        </tr>
+                                        <tr>
+                                          <td>-</td>
+                                          <td>1</td>
+                                          <td>2</td>
+                                          <td>3</td>
+                                          <td>4</td>
+                                          <td>5</td>
+                                          <td>6</td>
+                                        </tr>
+                                        <tr>
+                                          <td>7</td>
+                                          <td>8</td>
+                                          <td>9</td>
+                                          <td>10</td>
+                                          <td>11</td>
+                                          <td>12</td>
+                                          <td>13</td>
+                                        </tr>
+                                        <tr>
+                                          <td>14</td>
+                                          <td>15</td>
+                                          <td>16</td>
+                                          <td>17</td>
+                                          <td>18</td>
+                                          <td>19</td>
+                                          <td>20</td>
+                                        </tr>
+                                        <tr>
+                                          <td>21</td>
+                                          <td>22</td>
+                                          <td>23</td>
+                                          <td>24</td>
+                                          <td>25</td>
+                                          <td>26</td>
+                                          <td>27</td>
+                                        </tr>
+                                        <tr>
+                                          <td>28</td>
+                                          <td>29</td>
+                                          <td>30</td>
+                                          <td>31</td>
+                                        </tr>
+                                      </table>
+                                      <time class= "time" datetime="2016-1-1">11:09 PM - 16 Feb 2022</time>
+                                    </div>
+                                  </div>
+                                  <footer class="card-footer">
+                                    <a href="#" class="card-footer-item">Save</a>
+                                    <a href="#" class="card-footer-item">Edit</a>
+                                    <a href="#" class="card-footer-item">Delete</a>
+                                  </footer>
+                                </div>
+                          </div>
+                          
         
             </div>       
         </div>
