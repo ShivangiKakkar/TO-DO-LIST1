@@ -1,6 +1,7 @@
 <script setup lang="ts"></script>
-<template>          
-    <div class="section column is-half">
+<template>
+<div class="section columns">
+    <div class="column is-half">
                     <article class="panel">
                         <!-- UPPER -->
                         <div class="tabs is-boxed">
@@ -66,7 +67,9 @@
                             <span>add a .gitignore file</span>
                           </label>
                     </article>
-                  </div>
+    </div> 
+</div>       
+    
 </template>
 
     <style>

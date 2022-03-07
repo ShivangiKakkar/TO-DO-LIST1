@@ -6,8 +6,9 @@ import Calendar from './components/Calendar.vue';
 
 <template>
 <Nav />
-<Messages />
 <Calendar />
+<Messages />
+
 </template>
 
 <style>
