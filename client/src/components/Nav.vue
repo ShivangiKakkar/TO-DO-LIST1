@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router';
 <template>
 <nav class="navbar is-warning">
         <div class="navbar-brand">
-          <a class="navbar-item" href="">
+          <a class="navbar-item">
             <img src="https://img.icons8.com/external-becris-solid-becris/64/000000/external-calendar-literary-genres-becris-solid-becris.png"/>
             <span class="calendar-icon">Calendar</span>
           </a>
@@ -42,7 +42,7 @@ import { RouterLink } from 'vue-router';
                 <router-link class="navbar-item" to="/events">
                   Events
                 </router-link>
-                <router-link class="navbar-item is-active" to="/tasks">
+                <router-link class="navbar-item" to="/tasks">
                   Tasks
                 </router-link>
               </div>
