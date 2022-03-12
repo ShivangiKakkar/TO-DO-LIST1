@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 import router from "../router";
 import * as users from "../models/user";
-import { useMessages } from "./messages";
+import { useMessages } from "./notifications";
 
 const session = reactive({
     user: null as users.User | null,

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import LoginBadge from './LoginBadge.vue';
-import Messages from './Messages.vue';
+import Notifications from './Notifications.vue';
 
   const isOpen = ref(true);
 </script>
@@ -53,7 +53,7 @@ import Messages from './Messages.vue';
           <div class="navbar-end">
             
             <div class="navbar-item">
-              <messages />
+              <notifications />
               <login-badge />
             </div>
             </div>

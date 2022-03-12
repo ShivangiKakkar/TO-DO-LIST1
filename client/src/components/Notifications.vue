@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { useMessages } from '../models/messages';
+    import { useMessages } from '../models/notifications';
     const messages = useMessages();
     const isOpen = ref(false);
 </script>
@@ -36,7 +36,7 @@
     }
     .notification {
         margin: .5rem;
-        width: 100%;
+        width: 94%;
     }
     .tag {
         position: absolute;
