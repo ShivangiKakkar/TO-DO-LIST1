@@ -4,9 +4,10 @@ import { Login } from '../models/session';
     
     function login() 
     {
-        Login('Shivangi Kakkar', 'coffee')
+        Login('sk', 'coffee')
     }
 </script>
+
 <template>
     <div class="columns is-centered">
         <div class="section card">

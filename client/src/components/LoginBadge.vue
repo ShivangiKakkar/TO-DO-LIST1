@@ -15,7 +15,8 @@
         <div class="avatar">
             <img :src="session.user.pic" />
             <div>
-                <strong>{{ session.user.firstName }} {{ session.user.lastName }}</strong> <br />
+                <strong>{{ session.user.firstname }} {{ session.user.lastname }}</strong>
+                <br>
                 <i>{{ session.user.email }}</i>
             </div>
         </div>
@@ -25,7 +26,22 @@
     </div>
 </template>
 
-<style scoped>
-     
+<style scoped lang="scss">
+    .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: .5em;
+        gap: .5em;
+        line-height: 1em;
+        img {   
+            width: 48px;
+            height: 48px;
+            max-height: max-content;
+            border-radius: 10%;
+            overflow: hidden;
+            object-fit: cover;
+        }
+    }
 
 </style>

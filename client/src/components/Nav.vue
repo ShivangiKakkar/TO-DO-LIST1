@@ -2,25 +2,28 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import LoginBadge from './LoginBadge.vue';
+import Messages from './Messages.vue';
+
   const isOpen = ref(true);
 </script>
 
 <template>
 <nav class="navbar">
+      
         <div class="navbar-brand">
           <router-link class="navbar-item" to="/calendar">
             <img src="https://img.icons8.com/external-becris-solid-becris/64/000000/external-calendar-literary-genres-becris-solid-becris.png"/>
             <span class="calendar-icon">Calendar</span>
           </router-link>
 
-          <div class="navbar-burger" data-target="navbarExampleTransparentExample"  :class="{'is-active': isOpen}" @click="isOpen = !isOpen">
+          <a class="navbar-burger" data-target="navbarExampleTransparentExample"  :class="{'is-active': isOpen}" @click="isOpen = !isOpen">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </a>
         </div>
       
-        <div id="navbarExampleTransparentExample" class="navbar-menu" :class="{'is-active': isOpen}">
+        <div class="navbar-menu" :class="{'is-active': isOpen}">
           <div class="navbar-start">
             <router-link class="navbar-item" to="/">
               Home
@@ -46,10 +49,13 @@ import LoginBadge from './LoginBadge.vue';
               </div>
             </div>
           </div>
-      
+          <div class="container">
           <div class="navbar-end">
+            
             <div class="navbar-item">
+              <messages />
               <login-badge />
+            </div>
             </div>
           </div>
         </div>

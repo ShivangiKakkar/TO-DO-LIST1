@@ -9,7 +9,7 @@
         <img src="https://images.unsplash.com/photo-1579017308347-e53e0d2fc5e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80">
         <img src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=996&q=80">
         <br>
-        <a class="button is-white is-primary" target="_blank" href="https://www.calendarlabs.com/templates/2022/2022-printable-calendar-pdf-03.pdf">
+        <a class="button" target="_blank" href="https://www.calendarlabs.com/templates/2022/2022-printable-calendar-pdf-03.pdf">
             <span class="icon">
                 <i class="fas fa-download"></i>
             </span>
@@ -29,5 +29,6 @@ img{
     float: right;
     margin-top: 20px;
     margin-right: 15px;
+    background-color: rgb(229, 250, 186);
 }
 </style>
