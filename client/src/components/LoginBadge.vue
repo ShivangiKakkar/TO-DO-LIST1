@@ -4,10 +4,10 @@
 
 <template>
     <div class="buttons" v-if="!session.user">
-        <router-link class="button is-primary" to="/signup">
-            <strong>Sign up</strong>
+        <router-link class="button is-warning is-light" to="/signup">
+            Sign up
         </router-link>
-        <router-link class="button is-light" to="/login">
+        <router-link class="button is-warning is-light" to="/login">
             Log in
         </router-link>
     </div>
@@ -25,21 +25,7 @@
     </div>
 </template>
 
-<style scoped lang="scss">
-    .avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: .5em;
-        gap: .5em;
-        line-height: 1em;
-        img {
-            width: 48px;
-            height: 48px;
-            max-height: max-content;
-            border-radius: 10%;
-            overflow: hidden;
-            object-fit: cover;
-        }
-    }
+<style scoped>
+     
+
 </style>

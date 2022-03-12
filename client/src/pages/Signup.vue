@@ -1,19 +1,20 @@
-<script setup lang="ts">
-import { Login } from '../models/session';
 
-    
-    function login() 
-    {
-        Login('Shivangi Kakkar', 'coffee')
-    }
+<script setup lang="ts">
+
 </script>
+
 <template>
-    <div class="columns is-centered">
+  <div class="columns is-centered">
         <div class="section card">
-            <h1 class="title">Login</h1>
+            <h1 class="title">Sign Up</h1>
+            <div class="field">
+                <p class="control">
+                    <input class="input" type="name" placeholder="Your Name">
+                </p>
+            </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
+                    <input class="input" type="email" placeholder="Your Email">
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -24,7 +25,7 @@ import { Login } from '../models/session';
             </div>
             <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Password">
+                    <input class="input" type="password" placeholder="Set Password">
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
@@ -32,17 +33,19 @@ import { Login } from '../models/session';
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button" @click="login">
+                    <button class="button">
+                      <!-- @click="signup" -->
                     <span class="icon">
-                        <i class="fa fa-sign-in"></i>
+                        <i class="fa fa-user-plus"></i>
                     </span>
-                    <span>Login</span>
+                    <span>Create profile</span>
                     </button>
                 </p>
             </div>
         </div>
     </div>
 </template>
+
 <style scoped>
 .section{
     margin-top: 70px;
