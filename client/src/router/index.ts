@@ -32,7 +32,7 @@ const router = createRouter({
 })
 //Guards
 router.beforeEach((to, from) => {
-    if(['/overview'].includes(to.path)) {
+    if(['/overview', '/wall', '/feed'].includes(to.path)) {
         if(!session.user) {
             return '/login';
         }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import LoginBadge from './LoginBadge.vue';
   const isOpen = ref(true);
 </script>
 
@@ -73,7 +74,8 @@ import { RouterLink } from 'vue-router';
               </div>
             </div>
             <div class="navbar-item">
-              <div class="field is-grouped">
+              
+              <!-- <div class="field is-grouped">
                 <p class="control">
                   <router-link class="button is-dark" to="/signup">
                     <span>Sign Up</span>
@@ -84,7 +86,7 @@ import { RouterLink } from 'vue-router';
                     <span>Login</span>
                   </router-link>
                 </p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
