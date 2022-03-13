@@ -21,7 +21,7 @@ export const list: User[] = [
 {
     firstname: 'Vladimir',
     lastname: 'Putin',
-    handle: 'russian_dictator',
+    handle: 'vp',
     password: 'longtable',
     email: 'vladimirputin.com',
     pic:'https://randomuser.me/api/portraits/men/8.jpg',
@@ -35,6 +35,24 @@ export const list: User[] = [
     email: 'joebiden.com',
     pic:'https://randomuser.me/api/portraits/men/76.jpg',
     id: 3,
+},
+{
+    firstname: 'Moshe',
+    lastname: 'Plotkin',
+    handle: 'jewpaltz',
+    password: 'vitaminwater',
+    email: 'mosheplotkin.com',
+    pic:'https://randomuser.me/api/portraits/men/76.jpg',
+    id: 4,
+},
+{
+    firstname: 'Juli',
+    lastname: 'Han',
+    handle: 'jh',
+    password: 'hello',
+    email: 'julihan.com',
+    pic:'https://randomuser.me/api/portraits/women/21.jpg',
+    id: 5,
 },
 
 ];

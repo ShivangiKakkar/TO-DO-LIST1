@@ -1,11 +1,26 @@
-<script setup lang="ts">
-import { Login } from '../models/session';
+<script>
+import { Login } from '../models/session';  
+import { defineComponent, reactive } from "vue";
 
-    
-    function login() 
-    {
-        Login('sk', 'coffee')
-    }
+    export default defineComponent({
+        setup() {
+            const state = reactive({
+                userEmail: "",
+                userPassword: "",
+                todoText: "",
+            });
+
+
+            function login() {
+                console.log(state.userEmail, state.userPassword)
+                Login(state.userEmail, state.userPassword)
+            }
+            return {
+                state,
+                login   
+            }; 
+            },
+        });
 </script>
 
 <template>
@@ -14,7 +29,7 @@ import { Login } from '../models/session';
             <h1 class="title">Login</h1>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
+                    <input class="input" type="email" placeholder="Email" v-model="state.userEmail">
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -25,7 +40,7 @@ import { Login } from '../models/session';
             </div>
             <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Password">
+                    <input class="input" type="password" placeholder="Password" v-model="state.userPassword">
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
@@ -44,6 +59,12 @@ import { Login } from '../models/session';
         </div>
     </div>
 </template>
+
+
+
+
+
+
 <style scoped>
 .section{
     margin-top: 70px;

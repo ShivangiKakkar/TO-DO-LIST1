@@ -38,13 +38,10 @@ router.beforeEach((to, from) => {
     if(session.destinationUrl == null && to.path != '/login'){
       session.destinationUrl = to.path;
     }
-    const protectedUrls = ['/messages', '/wall', '/feed', '/hidden'];
+    const protectedUrls = ['/calendar', '/tasks', '/about'];
 
     if(protectedUrls.includes(to.path)) {
-
-    }
-    if(['/calendar', '/tasks', '/about'].includes(to.path)) {
-        console.log('requires login');
+      console.log('requires login');
         if(!session.user) {
             return '/login';
         }

@@ -14,7 +14,7 @@ export async function Login(handle: string, password: string) {
 
     try {
         if(!user){
-            throw { message: "User not found!" };
+            throw { message: "Following user not found. User: " + handle };
         } 
         if(user.password !== password){
             throw { message: "Incorrect Password" };
@@ -25,6 +25,7 @@ export async function Login(handle: string, password: string) {
         });
         
         session.user = user;
+        console.log(session.destinationUrl)
         router.push(session.destinationUrl ?? '/home');
     } catch (error: any){
         messages.notifications.push({
