@@ -14,11 +14,7 @@
                 all_users: users.list,
                 currentTaskAssignedTo: session.user.handle,
                 tasks: [
-                    { title: 'Make Bulma great again', isDone: false, author: 'sk', assignedTo: 'vp', date: new Date    ("March 13, 2022")},
-                    { title: 'Add some more features', isDone: true, author: 'sk', assignedTo: 'vp',  date: new Date("March 13, 2022")},
-                    { title: 'Make a github account', isDone: false, author: 'vp', assignedTo: 'sk',  date: new Date("March 13, 2022")},
-                    { title: 'Learn how to use github', isDone: false, author: 'vp', assignedTo: 'jb', date: new Date("March 13, 2022")},
-                    { title: 'add a .gitignore file', isDone: false, author: 'jb', assignedTo: 'vp', date: new Date("March 13, 2022")},
+                    
                     ]
             });
             console.log(state.all_users.list)
@@ -88,52 +84,70 @@
 
 <template>
 <div class="section columns">
-    <div class="column is-half">
+    <div class="column is-four-fifths">
         <article class="panel">
             <div class="tabs is-boxed">
                 <ul>
                     <li :class="{ 'is-active': state.currentTab == 'created_by_me'}" @click="changeTab('created_by_me')">
                     <a>
                         <span class="icon is-small"><i class="fas fa-clipboard-list"></i></span>
-                        <span id="created_by_me">created_by_me</span>
+                        <span id="created_by_me">Create and assign tasks</span>
                     </a>
                     </li>
                     <li :class="{ 'is-active': state.currentTab == 'assigned_to_me'}" @click="changeTab('assigned_to_me')">
                     <a>
                         <span class="icon is-small"><i class="fas fa-calendar-times"></i></span>
-                        <span id="assigned_to_me">assigned_to_me</span>
+                        <span id="assigned_to_me">Tasks assigned to me</span>
                     </a>
                     </li>
                     <li  :class="{ 'is-active': state.currentTab == 'sorted_by_date'}" @click="changeTab('sorted_by_date')">
                     <a>
                         <span class="icon is-small"><i class="fas fa-calendar"></i></span>
-                        <span id="all">sorted_by_date </span>
+                        <span id="all">Sorted by Date</span>
                     </a>
                     </li>
                 </ul>
+                
             </div>
+
             <div class="panel-block">
             <div class="field has-addons " style="width: 100%;">
                 <div class="control has-icons-left is-expanded">
-                    <input class="input is-primary field" type="text" placeholder="New Task" v-model="state.newTitleName">
+                    <input class="input is-warning field" type="text" placeholder="New Task" v-model="state.newTitleName">
                     <span class="icon is-left">
                         <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                     </span>
-                    <div class="select">
-                        <select @change="selectedUserEvent($event)">
-                            <option v-for="user in state.all_users" :value="user.handle">{{user.firstname}} ({{user.handle}})</option>
-                        </select>
-                    </div>
                 </div>
                 <div class="control" @click="addTask">
-                    <button class="button is-primary">Add</button>
+                    <button class="button is-warning">Add</button>
                 </div>
+                
+               
+                <div class="select">
+                        <select @change="selectedUserEvent($event)">
+                            <option v-for="user in state.all_users" :value="user.handle"><p>Assign To:  </p>{{user.firstname}} ({{user.handle}})</option>
+                        </select>
+                </div>
+            
             </div>
             </div>
                 <label>
                 <span class="panel-block" v-for="task in pendingTasks" :key="task.title">
                     <input type="checkbox" v-model=task.isDone />
-                    {{ task.title }}, {{task.author}}, {{task.assignedTo}}, {{task.date}}
+                    <div class="column task_name">
+                        {{ task.title }}
+                    </div>
+                    <div class="column author_name">
+                        <p>Created by: {{task.author}}</p>
+                        
+                    </div>
+                    <div class="column assignedTo_name">
+                        <p>Assigned to: {{task.assignedTo}}</p>
+                        
+                    </div>
+                    <div class="column task_date">
+                        <p>Due Date: {{task.date}}</p>
+                    </div>
                 </span>
                 </label>
         </article>
@@ -142,5 +156,21 @@
    
 </template>
 
-    <style>
-    </style>
+<style>
+    .task_components{
+        display: inline;
+    }
+    .author_name{
+        color: rgb(121, 192, 216);
+    }
+    .assignedTo_name{
+        color: rgb(197, 163, 118);
+    }
+    .task_date{
+        color: rgb(163, 161, 161);
+    }
+    .select{
+        margin-left: 10px;
+        display: inline;
+    }
+</style>

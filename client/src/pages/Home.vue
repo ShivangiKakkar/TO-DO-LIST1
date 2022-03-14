@@ -19,6 +19,15 @@
                 <li>Sit back and reflect about your believes and faith.</li>
             </ul>
         </p>
+        <p class="mid-term">
+            TO-DO List [MID TERM]: Diary -> Tasks
+            <br>
+            Login Details: 
+            <br>
+            Handle: 'jewpaltz'
+            <br>
+            Password: 'vitaminwater'
+        </p>
         </div>
     </div>
 </template>
@@ -38,5 +47,11 @@ p{
 }
 .align{
     display: flex;
+}
+.mid-term{
+    color: burlywood;
+    font-weight: bolder;
+    background-color: antiquewhite;
+    height: 100px;
 }
 </style>
