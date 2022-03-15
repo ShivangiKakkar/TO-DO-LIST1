@@ -24,6 +24,8 @@
             <br>
             Login Details: 
             <br>
+            email: mosheplotkin.com
+            <br>
             Handle: 'jewpaltz'
             <br>
             Password: 'vitaminwater'
@@ -52,6 +54,6 @@ p{
     color: burlywood;
     font-weight: bolder;
     background-color: antiquewhite;
-    height: 100px;
+    height: 120px;
 }
 </style>

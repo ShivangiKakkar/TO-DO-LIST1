@@ -1,7 +1,7 @@
 <script>
     import { computed, defineComponent, reactive } from "vue";
     import session from '../models/session';
-    import * as users from "../models/user"; 
+    import * as users from "../models/user";
 
     export default defineComponent({
         setup() {
@@ -14,10 +14,11 @@
                 all_users: users.list,
                 currentTaskAssignedTo: session.user.handle,
                 tasks: [
-                    
-                    ]
+                    // { title: 'Do mid-term', isDone: false, author: 'jewpaltz', assignedTo: 'sk', date: new Date("March 14, 2022")},
+                    // { title: 'Add some more features', isDone: true, author: 'sk', assignedTo: 'vp',  date: new Date("March 13, 2022")},
+                ]
             });
-            console.log(state.all_users.list)
+            console.log(state.all_users.list);
             
             let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
             let data2 = state.tasks.filter(a => (a.assignedTo == state.loggedInUser.handle));
@@ -32,15 +33,10 @@
             
             console.log(dataMap2)
 
-            // filter -> author = loggedin user,handle -> created by me tav
-            //assigned to me == logedin user.handle ->
-            //date sep by date. 
-
             function changeTab(tab) {
                 state.currentTab = tab;
             };
             function addTask() {
-                console.log(state.newTitleName)
                 state.tasks.unshift({
                     title: state.newTitleName,
                     isDone: false,
@@ -60,11 +56,10 @@
 
                 state.dataMap = dataMap2;
             };
-
             function selectedUserEvent(event) {
                 console.log(event.target.value)
                 state.currentTaskAssignedTo = event.target.value;
-            }
+                }
             const pendingTasks = computed (() => {
                 return state.dataMap[state.currentTab];
             })
@@ -91,7 +86,7 @@
                     <li :class="{ 'is-active': state.currentTab == 'created_by_me'}" @click="changeTab('created_by_me')">
                     <a>
                         <span class="icon is-small"><i class="fas fa-clipboard-list"></i></span>
-                        <span id="created_by_me">Create and assign tasks</span>
+                        <span id="created_by_me">Tasks created by me</span>
                     </a>
                     </li>
                     <li :class="{ 'is-active': state.currentTab == 'assigned_to_me'}" @click="changeTab('assigned_to_me')">
@@ -103,7 +98,7 @@
                     <li  :class="{ 'is-active': state.currentTab == 'sorted_by_date'}" @click="changeTab('sorted_by_date')">
                     <a>
                         <span class="icon is-small"><i class="fas fa-calendar"></i></span>
-                        <span id="all">Sorted by Date</span>
+                        <span id="all">Tasks sorted by Date</span>
                     </a>
                     </li>
                 </ul>
@@ -111,7 +106,7 @@
             </div>
 
             <div class="panel-block">
-            <div class="field has-addons " style="width: 100%;">
+            <div class="field has-addons" style="width: 100%;">
                 <div class="control has-icons-left is-expanded">
                     <input class="input is-warning field" type="text" placeholder="New Task" v-model="state.newTitleName">
                     <span class="icon is-left">
@@ -125,10 +120,11 @@
                
                 <div class="select">
                         <select @change="selectedUserEvent($event)">
-                            <option v-for="user in state.all_users" :value="user.handle"><p>Assign To:  </p>{{user.firstname}} ({{user.handle}})</option>
+                            <option v-for="user in state.all_users" :value="user.handle">
+                                Assign To - {{user.firstname}} ({{user.handle}})
+                            </option>
                         </select>
                 </div>
-            
             </div>
             </div>
                 <label>

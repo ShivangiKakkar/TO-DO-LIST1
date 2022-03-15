@@ -8,13 +8,13 @@ const session = reactive({
     destinationUrl: null as string | null,
 })
 
-export async function Login(handle: string, password: string) {
-    const user = users.list.find(u => u.handle === handle);
+export async function Login(email: string, password: string) {
+    const user = users.list.find(u => u.email === email);
     const messages = useMessages();
 
     try {
         if(!user){
-            throw { message: "Following user not found. User: " + handle };
+            throw { message: "Following user not found. User: " + email };
         } 
         if(user.password !== password){
             throw { message: "Incorrect Password" };
@@ -26,13 +26,12 @@ export async function Login(handle: string, password: string) {
         
         session.user = user;
         console.log(session.destinationUrl)
-        router.push(session.destinationUrl ?? '/home');
+        router.push(session.destinationUrl ?? '/');
     } catch (error: any){
         messages.notifications.push({
             type: "danger",
             message: error.message,
         });
-        console.table(messages.notifications)
     }
 }
 
