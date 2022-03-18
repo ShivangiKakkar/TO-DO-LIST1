@@ -104,7 +104,7 @@
                 </ul>
                 
             </div>
-
+            <form @submit.prevent="handleSubmit">
             <div class="panel-block">
             <div class="field has-addons" style="width: 100%;">
                 <div class="control has-icons-left is-expanded">
@@ -113,17 +113,20 @@
                         <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                     </span>
                 </div>
+            
                 <div class="control" @click="addTask">
                     <button class="button is-warning">Add</button>
                 </div>
-                
-               
+
                 <div class="select">
                         <select @change="selectedUserEvent($event)">
                             <option v-for="user in state.all_users" :value="user.handle">
                                 Assign To - {{user.firstname}} ({{user.handle}})
                             </option>
                         </select>
+                </div>
+                <div class="date" >
+                    <input type="date" v-model="date">
                 </div>
             </div>
             </div>
@@ -135,17 +138,17 @@
                     </div>
                     <div class="column author_name">
                         <p>Created by: {{task.author}}</p>
-                        
                     </div>
                     <div class="column assignedTo_name">
                         <p>Assigned to: {{task.assignedTo}}</p>
-                        
                     </div>
-                    <div class="column task_date">
-                        <p>Due Date: {{task.date}}</p>
+                    <div class="column assignedTo_name">
+                        <p>Due: {{date}}</p>
                     </div>
+                    
                 </span>
                 </label>
+            </form>
         </article>
     </div> 
 </div> 
@@ -168,5 +171,9 @@
     .select{
         margin-left: 10px;
         display: inline;
+    }
+    .date{
+        margin-left: 10px;
+        margin-top: 5px;
     }
 </style>

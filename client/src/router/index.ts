@@ -6,7 +6,6 @@ import Login from '../pages/Login.vue';
 import Generic from '../pages/Generic.vue';
 import Signup from '../pages/Signup.vue';
 import session from '../models/session';
-import MonthlyCalendar from '../components/MonthlyCalendar.vue';
 import Calendar from '../components/Calendar.vue';
 import About from '../components/About.vue';
 // 2. Define some routes
@@ -16,7 +15,6 @@ import About from '../components/About.vue';
 const routes: RouteRecordRaw[ ] = [
   { path: '/calendar', component: Calendar },
   { path: '/', component: Home },
-  { path: '/monthly', component: MonthlyCalendar },
   { path: '/tasks', component: Tasks },
   { path: '/about', component: About },
   { path: '/issue', component: Generic, props: { title: "Will reach you soon! Thank you for being patient!  " } },
@@ -38,7 +36,7 @@ router.beforeEach((to, from) => {
     if(session.destinationUrl == null && to.path != '/login'){
       session.destinationUrl = to.path;
     }
-    const protectedUrls = ['/calendar', '/tasks', '/about'];
+    const protectedUrls = ['/calendar', '/tasks'];
 
     if(protectedUrls.includes(to.path)) {
       console.log('requires login');
