@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { Login } from '../models/session';  
 import { defineComponent, reactive } from "vue";
 
