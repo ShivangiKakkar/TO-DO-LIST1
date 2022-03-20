@@ -42,7 +42,7 @@
                     isDone: false,
                     author: state.loggedInUser.handle,
                     assignedTo: state.currentTaskAssignedTo,
-                    date: new Date(),
+                    date: state.date,
                 });
                 state.newTitleName = '';
                 let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
@@ -126,7 +126,7 @@
                         </select>
                 </div>
                 <div class="date" >
-                    <input type="date" v-model="date">
+                    <input type="date" v-model="state.date">
                 </div>
             </div>
             </div>
@@ -143,7 +143,7 @@
                         <p>Assigned to: {{task.assignedTo}}</p>
                     </div>
                     <div class="column assignedTo_name">
-                        <p>Due: {{date}}</p>
+                        <p>Due: {{task.date}}</p>
                     </div>
                     
                 </span>
