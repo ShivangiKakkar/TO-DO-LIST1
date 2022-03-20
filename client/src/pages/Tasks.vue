@@ -14,7 +14,7 @@
                 all_users: users.list,
                 currentTaskAssignedTo: session.user.handle,
                 tasks: [
-                    // { title: 'Do mid-term', isDone: false, author: 'jewpaltz', assignedTo: 'sk', date: new Date("March 14, 2022")},
+                     //{ title: 'Do mid-term', isDone: false, author: 'jewpaltz', assignedTo: 'sk', date: new Date("March 14, 2022")},
                     // { title: 'Add some more features', isDone: true, author: 'sk', assignedTo: 'vp',  date: new Date("March 13, 2022")},
                 ]
             });
@@ -42,12 +42,11 @@
                     isDone: false,
                     author: state.loggedInUser.handle,
                     assignedTo: state.currentTaskAssignedTo,
-                    date: new Date(),
+                    date: state.date,
                 });
                 state.newTitleName = '';
                 let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
                 let data2 = state.tasks.filter(a => (a.assignedTo == state.loggedInUser.handle));
-                let data3 = state.tasks.sort(function(a,b) { return a.date > b.date });
                 
                 let dataMap2 = {};
                 dataMap2['created_by_me'] = data1;
@@ -104,8 +103,9 @@
                 </ul>
                 
             </div>
-            <form @submit.prevent="handleSubmit">
+            
             <div class="panel-block">
+         
             <div class="field has-addons" style="width: 100%;">
                 <div class="control has-icons-left is-expanded">
                     <input class="input is-warning field" type="text" placeholder="New Task" v-model="state.newTitleName">
@@ -113,7 +113,6 @@
                         <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                     </span>
                 </div>
-            
                 <div class="control" @click="addTask">
                     <button class="button is-warning">Add</button>
                 </div>
@@ -125,14 +124,17 @@
                             </option>
                         </select>
                 </div>
-                <div class="date" >
-                    <input type="date" v-model="date">
+                <!-- DATE -->
+                <div class="date">
+                    <input type="date" id="date" v-model="state.date">  
                 </div>
             </div>
             </div>
+            
                 <label>
                 <span class="panel-block" v-for="task in pendingTasks" :key="task.title">
                     <input type="checkbox" v-model=task.isDone />
+
                     <div class="column task_name">
                         {{ task.title }}
                     </div>
@@ -142,13 +144,12 @@
                     <div class="column assignedTo_name">
                         <p>Assigned to: {{task.assignedTo}}</p>
                     </div>
-                    <div class="column assignedTo_name">
-                        <p>Due: {{date}}</p>
+                    <div class="column">
+                        <p>Due: {{task.date}}</p>
                     </div>
-                    
                 </span>
                 </label>
-            </form>
+            
         </article>
     </div> 
 </div> 

@@ -24,7 +24,7 @@
             <br>
             Login Details: 
             <br>
-            email: mosheplotkin.com
+            email: mosheplotkin@gmail.com
             <br>
             Handle: 'jewpaltz'
             <br>
