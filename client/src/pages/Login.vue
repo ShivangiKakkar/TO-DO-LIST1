@@ -1,6 +1,7 @@
 <script lang="ts">
 import { Login } from '../models/session';  
 import { defineComponent, reactive } from "vue";
+import { RouterLink } from 'vue-router';
 
     export default defineComponent({
         setup() {
@@ -46,14 +47,23 @@ import { defineComponent, reactive } from "vue";
                     </span>
                 </p>
             </div>
+           
             <div class="field">
                 <p class="control">
                     <button class="button" @click="login">
                     <span class="icon">
                         <i class="fa fa-sign-in"></i>
                     </span>
+                    
                     <span>Login</span>
                     </button>
+                </p>
+            </div>
+             <div>
+                <p class="field">Don't have an account?
+                    <router-link class="signup_img" to="/signup">
+                        <img src="https://img.icons8.com/external-bearicons-gradient-bearicons/40/000000/external-Sign-Up-social-media-bearicons-gradient-bearicons.png"/>
+                    </router-link>
                 </p>
             </div>
         </div>
@@ -75,4 +85,8 @@ import { defineComponent, reactive } from "vue";
 .button{
     background-color:rgb(250, 175, 201);
 }
+.signup_img{
+  height: 40px;
+  vertical-align: middle;
+} 
 </style>

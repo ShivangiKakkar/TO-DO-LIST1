@@ -157,6 +157,7 @@
 </template>
 
 <style>
+
     .task_components{
         display: inline;
     }

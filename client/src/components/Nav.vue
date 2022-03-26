@@ -12,7 +12,7 @@ import Notifications from './Notifications.vue';
       
         <div class="navbar-brand">
           <router-link class="navbar-item" to="/calendar">
-            <img src="https://img.icons8.com/external-becris-solid-becris/64/000000/external-calendar-literary-genres-becris-solid-becris.png"/>
+            <img src="https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/66/000000/external-calendar-sports-and-games-smashingstocks-glyph-smashing-stocks.png"/>
             <span class="calendar-icon">Calendar</span>
           </router-link>
 
