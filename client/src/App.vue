@@ -4,8 +4,10 @@ import Nav from './components/Nav.vue';
 
 <template>
     <Nav />
+    <div class="container">
+        <router-view />
+    </div>
     
-    <router-view />
 </template>
 
 <style>

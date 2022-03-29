@@ -5,7 +5,7 @@ export interface User{
     password: string;
     email: string;
     pic: string;
-    id: number;
+    id: number | null;
 }
 
 export const list: User[] = [

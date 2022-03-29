@@ -1,17 +1,19 @@
 
 <script setup lang="ts">
 import router from '../router';
-import { list } from '../models/user';
+import { list, User } from '../models/user';
 import { reactive } from 'vue';
+import session, { navigateToDeepLink } from '../models/session';
 
-const newUser = reactive({
+const newUser = reactive(<User & { confirmPassword: string} >{
       firstname: "",
       lastname: "",
       handle: "",
       email: "",
       password: "",
       confirmPassword: "",
-      pic: ""
+      pic: "",
+      id: null
   })
 
 function handleSubmit(){
@@ -20,24 +22,11 @@ function handleSubmit(){
             alert("Error!! Passwords donot match!");
         }
         else{
-            list.push(
-              {
-                firstname: newUser.firstname,
-                lastname: newUser.lastname,
-                handle: newUser.handle,
-                email: newUser.email,
-                password: newUser.password,
-                pic: "",
-                id: list.length + 1
-              }
-        )
-        newUser.firstname = "";
-        newUser.lastname = "";
-        newUser.email = "";
-        newUser.password = "";
-        newUser.confirmPassword = "";
+            newUser.id = list.length + 1;
+            list.push(newUser);
+            session.user = newUser;
+            navigateToDeepLink();
         } 
-        router.push("/")
     }
 }
 </script>
@@ -46,22 +35,22 @@ function handleSubmit(){
   <div class="columns is-centered">
         <div class="section card">
             <form @submit.prevent="handleSubmit">
-            <img src="https://img.icons8.com/office/80/000000/harry-potter-.png"/>
+            <img src="https://img.icons8.com/external-bearicons-flat-bearicons/64/000000/external-signup-call-to-action-bearicons-flat-bearicons.png"/>
             <h1 class="title">Sign Up</h1>
             <div class="field">
                 <h3>First Name</h3>
                 <p class="control">
-                    <input class="input" type="name" required placeholder="Your First Name" v-model="newUser.firstname">
+                    <input class="input" type="name" required placeholder="eg Joe" v-model="newUser.firstname">
                 </p>
                 <h3>Last Name</h3>
                 <p class="control">
-                    <input class="input" type="name" required placeholder="Your Last Name" v-model="newUser.lastname">
+                    <input class="input" type="name" required placeholder="eg Biden" v-model="newUser.lastname">
                 </p>
             </div>
             <div class="field">
                 <h3>Email</h3>
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" required placeholder="Your Email" v-model="newUser.email">
+                    <input class="input" type="email" required placeholder="abc@example.com" v-model="newUser.email">
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -69,16 +58,19 @@ function handleSubmit(){
                         <i class="fas fa-check"></i>
                     </span>
                 </p>
+                <p>Create Handle
+                    <input class="input" type="handle" required placeholder="coolkid01" v-model="newUser.handle">
+                </p>
                 <h3>Set Password</h3>
                 <p class="control has-icons-left">
-                    <input class="input" type="password" required placeholder="Set Password" v-model="newUser.password">
+                    <input class="input" type="password" required placeholder="*****" v-model="newUser.password">
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>
                 </p>
                 <h3>Confirm Password</h3>
                 <p class="control has-icons-left">
-                    <input class="input" type="password" required placeholder="Confirm Password" v-model="newUser.confirmPassword">
+                    <input class="input" type="password" required placeholder="*****" v-model="newUser.confirmPassword">
                     <span class="icon is-small is-left">
                         <i class="fas fa-lock"></i>
                     </span>

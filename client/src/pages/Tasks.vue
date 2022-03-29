@@ -2,6 +2,7 @@
     import { computed, defineComponent, reactive } from "vue";
     import session from '../models/session';
     import * as users from "../models/user";
+    import { taskList } from "../models/tasks";
 
     export default defineComponent({
         setup() {
@@ -13,10 +14,7 @@
                 dataMap: {},
                 all_users: users.list,
                 currentTaskAssignedTo: session.user.handle,
-                tasks: [
-                     //{ title: 'Do mid-term', isDone: false, author: 'jewpaltz', assignedTo: 'sk', date: new Date("March 14, 2022")},
-                    // { title: 'Add some more features', isDone: true, author: 'sk', assignedTo: 'vp',  date: new Date("March 13, 2022")},
-                ]
+                tasks: taskList
             });
             console.log(state.all_users.list);
             
@@ -72,8 +70,6 @@
             }; 
             },
         });
-
-
 </script>
 
 <template>
@@ -118,7 +114,7 @@
                 </div>
 
                 <div class="select">
-                        <select @change="selectedUserEvent($event)">
+                        <select v-model ="state.currentTaskAssignedTo">
                             <option v-for="user in state.all_users" :value="user.handle">
                                 Assign To - {{user.firstname}} ({{user.handle}})
                             </option>

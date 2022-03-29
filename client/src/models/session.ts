@@ -26,13 +26,19 @@ export async function Login(email: string, password: string) {
         
         session.user = user;
         console.log(session.destinationUrl)
-        router.push(session.destinationUrl ?? '/');
+
+        navigateToDeepLink();
     } catch (error: any){
         messages.notifications.push({
             type: "danger",
             message: error.message,
         });
     }
+}
+
+export function navigateToDeepLink()
+{
+    router.push(session.destinationUrl ?? '/');
 }
 
 export function Logout() {
