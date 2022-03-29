@@ -74,7 +74,7 @@
 
 <template>
 <div class="section columns">
-    <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="column is-two-thirds">
         <article class="panel">
             <div class="tabs is-boxed">
                 <ul>
