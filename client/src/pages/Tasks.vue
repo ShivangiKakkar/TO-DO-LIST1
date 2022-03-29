@@ -74,7 +74,7 @@
 
 <template>
 <div class="section columns">
-    <div class="column is-four-fifths">
+    <div class="column is-three-fifths is-offset-one-fifth">
         <article class="panel">
             <div class="tabs is-boxed">
                 <ul>
@@ -101,29 +101,26 @@
             </div>
             
             <div class="panel-block">
-         
             <div class="field has-addons" style="width: 100%;">
-                <div class="control has-icons-left is-expanded">
-                    <input class="input is-warning field" type="text" placeholder="New Task" v-model="state.newTitleName">
+                <p class="control has-icons-left">
+                    <input class="input control" type="text" placeholder="New Task" v-model="state.newTitleName">
                     <span class="icon is-left">
                         <i class="fas fa-calendar-plus" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="control" @click="addTask">
-                    <button class="button is-warning">Add</button>
-                </div>
-
-                <div class="select">
-                        <select v-model ="state.currentTaskAssignedTo">
+                    </span>      
+                </p>
+                <p class=" control select">
+                    <select v-model ="state.currentTaskAssignedTo">
                             <option v-for="user in state.all_users" :value="user.handle">
                                 Assign To - {{user.firstname}} ({{user.handle}})
                             </option>
-                        </select>
-                </div>
-                <!-- DATE -->
-                <div class="date">
-                    <input type="date" id="date" v-model="state.date">  
-                </div>
+                    </select>
+                </p>
+                <p class="control">
+                    <input class="input field" type="date" id="date" v-model="state.date">
+                </p>
+                <p class="control" @click="addTask">
+                    <button class="button is-warning">Add</button>
+                </p>
             </div>
             </div>
             
@@ -143,7 +140,11 @@
                     <div class="column">
                         <p>Due: {{task.date}}</p>
                     </div>
+                    <span class="icon is-left">
+                        <a class="fas fa-trash" aria-hidden="true"></a>
+                    </span>
                 </span>
+                
                 </label>
             
         </article>
@@ -153,10 +154,6 @@
 </template>
 
 <style>
-
-    .task_components{
-        display: inline;
-    }
     .author_name{
         color: rgb(121, 192, 216);
     }
@@ -167,11 +164,9 @@
         color: rgb(163, 161, 161);
     }
     .select{
-        margin-left: 10px;
         display: inline;
     }
     .date{
-        margin-left: 10px;
         margin-top: 5px;
     }
 </style>
