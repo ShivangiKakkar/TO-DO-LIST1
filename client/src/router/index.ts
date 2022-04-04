@@ -6,8 +6,9 @@ import Login from '../pages/Login.vue';
 import Generic from '../pages/Generic.vue';
 import Signup from '../pages/Signup.vue';
 import session from '../models/session';
-import Calendar from '../components/Calendar.vue';
-import About from '../components/About.vue';
+import Calendar from '../pages/Calendar.vue';
+import About from '../pages/About.vue';
+
 // 2. Define some routes
 // Each route should map to a component.
 // We'll talk about nested routes later.
