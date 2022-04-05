@@ -5,71 +5,65 @@
     import { taskList } from "../models/tasks";
 
     export default defineComponent({
-        setup() {
-            const state = reactive({
-                message: 'Hey there! I am using Vue!',
-                loggedInUser: session.user,
-                currentTab: 'created_by_me',
-                newTitleName: '',
-                dataMap: {},
-                all_users: users.list,
-                currentTaskAssignedTo: session.user.handle,
-                tasks: taskList
+    setup() {
+        const state = reactive({
+            message: "Hey there! I am using Vue!",
+            loggedInUser: session.user,
+            currentTab: "created_by_me",
+            newTitleName: "",
+            dataMap: {},
+            all_users: users.list,
+            currentTaskAssignedTo: session.user.handle,
+            tasks: taskList
+        });
+        console.log(state.all_users.list);
+        let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
+        let data2 = state.tasks.filter(a => (a.assignedTo == state.loggedInUser.handle));
+        let data3 = state.tasks.sort(function (a, b) { return a.date > b.date; });
+        let dataMap2 = {};
+        dataMap2["created_by_me"] = data1;
+        dataMap2["assigned_to_me"] = data2;
+        dataMap2["sorted_by_date"] = data3;
+        state.dataMap = dataMap2;
+        console.log(dataMap2);
+        function changeTab(tab) {
+            state.currentTab = tab;
+        }
+        ;
+        function addTask() {
+            state.tasks.unshift({
+                title: state.newTitleName,
+                isDone: false,
+                author: state.loggedInUser.handle,
+                assignedTo: state.currentTaskAssignedTo,
+                date: state.date,
             });
-            console.log(state.all_users.list);
-            
+            state.newTitleName = "";
             let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
             let data2 = state.tasks.filter(a => (a.assignedTo == state.loggedInUser.handle));
-            let data3 = state.tasks.sort(function(a,b) { return a.date > b.date });
-            
             let dataMap2 = {};
-            dataMap2['created_by_me'] = data1;
-            dataMap2['assigned_to_me'] = data2;
-            dataMap2['sorted_by_date'] = data3;
-
+            dataMap2["created_by_me"] = data1;
+            dataMap2["assigned_to_me"] = data2;
+            dataMap2["sorted_by_date"] = data3;
             state.dataMap = dataMap2;
-            
-            console.log(dataMap2)
-
-            function changeTab(tab) {
-                state.currentTab = tab;
-            };
-            function addTask() {
-                state.tasks.unshift({
-                    title: state.newTitleName,
-                    isDone: false,
-                    author: state.loggedInUser.handle,
-                    assignedTo: state.currentTaskAssignedTo,
-                    date: state.date,
-                });
-                state.newTitleName = '';
-                let data1 = state.tasks.filter(a => (a.author == state.loggedInUser.handle));
-                let data2 = state.tasks.filter(a => (a.assignedTo == state.loggedInUser.handle));
-                
-                let dataMap2 = {};
-                dataMap2['created_by_me'] = data1;
-                dataMap2['assigned_to_me'] = data2;
-                dataMap2['sorted_by_date'] = data3;
-
-                state.dataMap = dataMap2;
-            };
-            function selectedUserEvent(event) {
-                console.log(event.target.value)
-                state.currentTaskAssignedTo = event.target.value;
-                }
-            const pendingTasks = computed (() => {
-                return state.dataMap[state.currentTab];
-            })
-
-            return {
-                state,
-                addTask,
-                changeTab,
-                selectedUserEvent,
-                pendingTasks,
-            }; 
-            },
+        }
+        ;
+        function selectedUserEvent(event) {
+            console.log(event.target.value);
+            state.currentTaskAssignedTo = event.target.value;
+        }
+        const pendingTasks = computed(() => {
+            return state.dataMap[state.currentTab];
         });
+        return {
+            state,
+            addTask,
+            changeTab,
+            selectedUserEvent,
+            pendingTasks,
+        };
+    },
+});
 </script>
 
 <template>
@@ -149,7 +143,7 @@
             
         </article>
     </div> 
-</div> 
+</div>
    
 </template>
 

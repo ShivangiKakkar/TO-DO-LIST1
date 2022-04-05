@@ -3,6 +3,7 @@ import { Login } from '../models/session';
 import { defineComponent, reactive } from "vue";
 import { RouterLink } from 'vue-router';
 
+
     export default defineComponent({
         setup() {
             const state = reactive({
@@ -69,11 +70,6 @@ import { RouterLink } from 'vue-router';
         </div>
     </div>
 </template>
-
-
-
-
-
 
 <style scoped>
 .section{
