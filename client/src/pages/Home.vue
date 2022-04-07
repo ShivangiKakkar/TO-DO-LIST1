@@ -41,7 +41,7 @@ import Footer from '../components/Footer.vue';
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-4by3">
-                            <img src="https://images.unsplash.com/photo-1603959822589-e57a12429125?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80" alt="Placeholder image">
+                            <img src="https://images.unsplash.com/photo-1592271019141-b5c71a9cfd71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80">
                         </figure>
                     </div>
                     <div class="card-content">
