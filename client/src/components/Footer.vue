@@ -1,14 +1,8 @@
 <script setup lang="ts">
 
 </script>
-
 <template>
         <footer class="footer">
-            <div class="content has-text-centered">
-                <span>
-                    Made with <i class="fa fa-heart pulse"></i> by Shivangi
-                </span>
-            </div>
             <p>Contact Me:</p>
             <a target="_blank" href="https://www.linkedin.com/in/shivangikakkar15/"> 
                 <span>
@@ -33,9 +27,16 @@
                     Facebook <i class="fab fa-facebook"></i>
                 </span>
             </a>
+            <div class="content has-text-centered">
+                <span>
+                    Made with <i class="fa fa-heart pulse"></i> by Shivangi
+                </span>
+            </div>
         </footer>
 </template>
 
 <style scoped>
-
+    .footer {
+        padding: 1.5rem;
+    }
 </style>

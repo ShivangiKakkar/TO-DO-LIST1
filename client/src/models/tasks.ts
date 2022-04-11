@@ -22,6 +22,5 @@ author: 'sk',
 assignedTo: 'vp',  
 date: '',
 id: 2
-},
-                
-]
+},               
+];
