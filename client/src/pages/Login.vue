@@ -61,7 +61,7 @@ import { RouterLink } from 'vue-router';
                 </p>
             </div>
              <div>
-                <p class="field">Don't have an account?
+                <p>Don't have an account?
                     <router-link class="signup_img" to="/signup">
                         <img src="https://img.icons8.com/external-bearicons-gradient-bearicons/40/000000/external-Sign-Up-social-media-bearicons-gradient-bearicons.png"/>
                     </router-link>
