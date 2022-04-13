@@ -34,7 +34,7 @@ jobs:
           mkdir -p dist/server/public/
           cp -a client/dist/. dist/server/public
           cp -a server/. dist/server
-          cp composer.json dist/
+          cp package.json dist/
           
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.2.3
