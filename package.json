@@ -1,0 +1,25 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "-HTML\r -CSS\r -Bulma\r -Vue 3\r -NodeJS\r -Express\r -C1/CD",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch server server/index.js",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShivangiKakkar/TO-DO-LIST1.git"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "dotenv": "^16.0.0",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
