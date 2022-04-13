@@ -10,7 +10,7 @@ app
             .then(tasks => res.json({ success: true, errors: [], data: task }))
             .catch(next);
     })
-    .get('/tasks/:handle', (req, res, next) => {
+    .get('/todo/:handle', (req, res, next) => {
         taskModel.getTask(req.params.handle)
             .then(tasks => { res.json({ success: true, errors: [], data: task }) })
             .catch(next);

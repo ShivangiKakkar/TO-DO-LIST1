@@ -1,0 +1,53 @@
+http://localhost:3000
+
+###
+GET http://localhost:3000/api/users/
+
+###
+GET http://localhost:3000/api/users/handle/shivi
+
+###
+GET http://localhost:3000/api/users/624f328a29759b2864c343a2
+
+###
+DELETE  http://localhost:3000/api/users/624f328a29759b2864c343a2
+
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "firstname": "Shivi",
+    "lastname": "hey",
+    "handle": "shiv",
+    "password": "cof",
+    "email": "shiv@gmail.com",
+    "pic": "https://randomuser.me/api/portraits/women/21.jpg"
+}
+
+###
+PATCH  http://localhost:3000/api/users/2
+Content-Type: application/json
+
+{
+
+    "lastname": "Putin III",
+    "password": "Ukraine",
+    "email": "save@ukraine.com"
+   
+}
+
+###
+POST  http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+
+    "email": "save@ukraine.com",
+    "password": "Ukraine"
+   
+}
+
+###
+POST  http://localhost:3000/api/users/seed
