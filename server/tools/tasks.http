@@ -1,0 +1,34 @@
+
+###
+GET http://localhost:3000/api/tasks/
+
+###
+GET http://localhost:3000/api/tasks/todo
+
+###
+GET http://localhost:3000/api/tasks/1
+
+###
+DELETE  http://localhost:3000/api/tasks/1
+
+###
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+    {
+        "title": "Connect DB", 
+        "isDone": false, 
+        "author": "joebiden", 
+        "assignedTo": "juli",  
+        "date": " ",
+        "id": 3
+    }
+
+
+###
+PATCH  http://localhost:3000/api/tasks/2
+Content-Type: application/json
+
+{
+    "owner": 3
+}
