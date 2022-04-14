@@ -10,6 +10,7 @@ const {requireAuth} = require('./models/auth');
 const app = express()
 const port = process.env.PORT || 3000;
 
+
 app
   .use('/', express.static(__dirname + '/public/'))
   .use(express.json())
@@ -39,8 +40,6 @@ app
   res.status(err.statusCode || 500)
     .send({ errors: [err.message ?? 'Internal server error' ]});
 })
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening at port http://localhost:${port}`)

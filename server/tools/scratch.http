@@ -2,15 +2,16 @@ http://localhost:3000
 
 ###
 GET http://localhost:3000/api/users/
+Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
 
 ###
 GET http://localhost:3000/api/users/handle/shivi
 
 ###
-GET http://localhost:3000/api/users/624f328a29759b2864c343a2
+GET http://localhost:3000/api/users/62579361ff42970efb202add
 
 ###
-DELETE  http://localhost:3000/api/users/624f328a29759b2864c343a2
+DELETE  http://localhost:3000/api/users/62579361ff42970efb202add
 
 
 ###
@@ -44,8 +45,8 @@ Content-Type: application/json
 
 {
 
-    "email": "save@ukraine.com",
-    "password": "Ukraine"
+    "email": "shiv@gmail.com",
+    "password": "cof"
    
 }
 

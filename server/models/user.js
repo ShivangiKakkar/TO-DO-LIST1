@@ -6,7 +6,7 @@ const { db, isConnected, ObjectId } = require('./mongo');
 const collection = db.db("diary").collection("users");
 
 let highestId = 5;
-
+console.log(isConnected);
 const list = [
     {
         firstname: 'Moshe',
@@ -93,6 +93,7 @@ async function update(id, newUser){
 
 async function login(email, password){
     const user = await collection.findOne({ email });
+    
     if(!user){
         throw { statusCode:404, message: 'User not found' };
     }
