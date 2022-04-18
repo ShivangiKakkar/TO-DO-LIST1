@@ -20,7 +20,7 @@
                 <i>{{ session.user.email }}</i>
             </div>
         </div>
-        <a class="button is-primary" @click="Logout()">
+        <a class="button is-black" @click="Logout()">
             <strong>Log out</strong>
         </a>
     </div>

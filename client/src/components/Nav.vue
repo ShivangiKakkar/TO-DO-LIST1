@@ -33,8 +33,8 @@ import Notifications from './Notifications.vue';
                 Diary
               </a>
               <div class="navbar-dropdown is-boxed">
-                <router-link class="navbar-item" to="/tasks">
-                  Tasks
+                <router-link class="navbar-item" to="/todo">
+                  Todo
                 </router-link>
                 <hr class="navbar-divider">
                 <router-link class="navbar-item" to="/about">

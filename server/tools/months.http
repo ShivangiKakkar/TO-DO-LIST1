@@ -1,0 +1,42 @@
+
+###
+GET http://localhost:3001/api/months/
+
+
+###
+GET http://localhost:3001/api/months/calendar/shivi
+ 
+
+###
+GET http://localhost:3001/api/months/625cd5225101912f0b442bde
+ 
+
+###
+DELETE  http://localhost:3001/api/months/625cd5225101912f0b442bde
+ 
+
+###
+POST http://localhost:3001/api/months
+Content-Type: application/json
+
+    {
+        "src": "https://www.saturdaygift.com/wp-content/uploads/5.-Christmas-Quote-Wallpaper-La-La-La-La-Laa-SaturdayGift.jpg",
+        "caption": "Christmas",
+        "designer": "shivi",
+        "likes": [],
+        "comments": [],
+        "isPublic": true
+    }
+
+
+###
+PATCH  http://localhost:3001/api/months/625cd5225101912f0b442bde
+Content-Type: application/json
+ 
+{
+    "designer": "shivi"
+}
+
+###
+POST http://localhost:3001/api/months/seed
+ 
