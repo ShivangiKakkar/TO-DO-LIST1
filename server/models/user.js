@@ -21,8 +21,8 @@ const list = [
         firstname: 'Shivangi',
         lastname: 'Kakkar',
         handle: 'shivi',
-        password: 'co',
-        email: 'sk',
+        password: 'cof',
+        email: 'shiv@gmail.com',
         pic: 'https://randomuser.me/api/portraits/women/21.jpg',
         id: 2,
     },
@@ -133,7 +133,6 @@ module.exports = {
         }
         user.password = await bcrypt.hash(user.password, +process.env.SALT_ROUNDS);
         console.log(user);
-        //throw {message: "fake error"};
 
         const result = await collection.insertOne(user);
         user = await get(result.insertedId);

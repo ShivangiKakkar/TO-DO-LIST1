@@ -1,34 +1,49 @@
 
-###
-GET http://localhost:3000/api/tasks/
-
-###
-GET http://localhost:3000/api/tasks/todo
-
-###
-GET http://localhost:3000/api/tasks/1
-
-###
-DELETE  http://localhost:3000/api/tasks/1
-
-###
-POST http://localhost:3000/api/tasks
-Content-Type: application/json
-
-    {
-        "title": "Connect DB", 
-        "isDone": false, 
-        "author": "joebiden", 
-        "assignedTo": "juli",  
-        "date": " ",
-        "id": 3
-    }
+# ###
+# GET http://localhost:3001/api/tasks/
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
 
 
-###
-PATCH  http://localhost:3000/api/tasks/2
-Content-Type: application/json
+# ###
+# GET http://localhost:3001/api/tasks/todo/shivi
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
 
-{
-    "owner": 3
-}
+
+# ###
+# GET http://localhost:3001/api/tasks/1
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
+
+
+# ###
+# DELETE  http://localhost:3001/api/tasks/1
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
+
+
+# ###
+# POST http://localhost:3001/api/tasks
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
+
+# Content-Type: application/json
+
+#     {
+#         "title": "Connect DB", 
+#         "isDone": false, 
+#         "author": "joebiden", 
+#         "assignedTo": "juli",  
+#         "date": " ",
+#         "id": 3
+#     }
+
+
+# ###
+# PATCH  http://localhost:3001/api/tasks/2
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY
+# Content-Type: application/json
+
+# {
+#     "author": "joebiden"
+# }
+
+# ###
+# POST http://localhost:3001/api/posts/seed
+# Authorization: bearer eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjQ5OTUzNzA2fQ.Bii179_xMxjN_fLCRTk97FoMwQ0-5Yuq41QhioS7hxY

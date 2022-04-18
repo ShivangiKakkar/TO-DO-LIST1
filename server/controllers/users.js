@@ -7,7 +7,7 @@ const userModel = require('../models/user');
 const CREATED_STATUS = 201;
 
 app
-    .get('/', (req, res, next) => {
+    .get('/', requireAuth,(req, res, next) => {
         userModel.getList()
         .then(users => {
             res.send(users);
