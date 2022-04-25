@@ -5,7 +5,7 @@ import Todo from '../pages/Todo.vue';
 import Login from '../pages/Login.vue';
 import Generic from '../pages/Generic.vue';
 import Signup from '../pages/Signup.vue';
-import session from '../models/session';
+import { useSession } from '../models/session';
 import Calendar from '../pages/Calendar.vue';
 import About from '../pages/About.vue';
 
@@ -14,7 +14,7 @@ import About from '../pages/About.vue';
 // We'll talk about nested routes later.
 
 const routes: RouteRecordRaw[ ] = [
-  { path: '/calendar', component: Calendar },
+  { path: '/calendar/:handle?', component: Calendar },
   { path: '/', component: Home },
   { path: '/todo', component:  Todo},
   { path: '/about', component: About },
@@ -34,12 +34,13 @@ const router = createRouter({
 })
 //Guards
 router.beforeEach((to, from) => {
+  const session = useSession();
     if(session.destinationUrl == null && to.path != '/login'){
       session.destinationUrl = to.path;
     }
     const protectedUrls = ['/calendar', '/todo'];
 
-    if(protectedUrls.includes(to.path)) {
+    if(protectedUrls.includes(to.path.toLowerCase())) {
       console.log('requires login');
         if(!session.user) {
             return '/login';

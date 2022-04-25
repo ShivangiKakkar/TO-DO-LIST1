@@ -1,28 +1,37 @@
 import { defineStore } from 'pinia'
-import { api } from './myFetch';
+import { useSession } from './session';
 import { User } from './user';
 
 export const useMonths = defineStore('months', {
 
   state: () => ({
     list: [] as Month[],
+    session: useSession(),
   }),
   actions: {
-    async fetchMonths() {
-      const months = await api('months');
-      this.list = months.data;
+    async fetchMonths(handle: string = '') {
+      const months = await this.session.api('months/calendar' + handle);
+      this.list = months;
+    },
+    async fetchAllMonths() {
+      const months = await this.session.api('months');
+      this.list = months;
+    },
+    async createMonth(month: Month) {
+      const newMonth = await this.session.api('months', month);
+      this.list.push(newMonth);
     }
+
   }
 })
 
 export interface Month {
-  _id: string;
+  _id?: string;
   src: string;
   caption: string;
   designer: string;
-  user: User;
+  user?: User;
   likes: string[];
   comments: any[];
   isPublic: boolean;
-
 }

@@ -1,11 +1,14 @@
 <script>
     import { computed, defineComponent, reactive } from "vue";
-    import session from '../models/session';
+    import { useSession } from '../models/session';
     import * as users from "../models/user";
     import { taskList } from "../models/tasks";
 
+    
+
     export default defineComponent({
     setup() {
+        const session = useSession();
         const state = reactive({
             message: "Hey there! I am using Vue!",
             loggedInUser: session.user,

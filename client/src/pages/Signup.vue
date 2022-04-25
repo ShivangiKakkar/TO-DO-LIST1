@@ -1,9 +1,11 @@
 
 <script setup lang="ts">
 import router from '../router';
-import { list, User } from '../models/user';
+import { User } from '../models/user';
 import { reactive } from 'vue';
-import session, { navigateToDeepLink } from '../models/session';
+import { useSession } from '../models/session';
+
+const session = useSession();
 
 const newUser = reactive(<User & { confirmPassword: string} >{
       firstname: "",

@@ -11,8 +11,13 @@ app
             .then(months => res.json({ success: true, errors: [], data: months }))
             .catch(next);
     })
-    .get('/wall/:handle', (req, res, next) => {
-        monthModel.getWall(req.params.handle)
+    .get('/calendar', (req, res, next) => {
+        monthModel.getCalendar(req.user.handle)
+            .then(months => { res.json({ success: true, errors: [], data: months }) })
+            .catch(next);
+    })
+    .get('/calendar/:handle', (req, res, next) => {
+        monthModel.getCalendar(req.params.handle)
             .then(months => { res.json({ success: true, errors: [], data: months }) })
             .catch(next);
     })
@@ -22,6 +27,7 @@ app
             .catch(next);
     })
     .post('/', (req, res, next) => {
+        req.body.owner = req.user.handle;
         monthModel.create(req.body)
             .then(month => { res.status(CREATED_STATUS).json({ success: true, errors: [], data: month }) })
             .catch(next);

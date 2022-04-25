@@ -1,8 +1,32 @@
 <script setup lang="ts">
-  import { useMonths } from "../models/months";
+  import { reactive } from 'vue';
+  import { Month, useMonths } from '../models/months';
+
+
+  import { useRoute } from "vue-router";
   import MonthView from "../components/MonthView.vue";
+
+  import MonthEdit from "../components/MonthEdit.vue";
+  import { useSession } from "../models/session";
+
+  const route = useRoute();
+
   const months = useMonths();
-  months.fetchMonths();
+  months.fetchMonths(route.params.handle as string);
+
+  const session = useSession();
+  const newMonth = reactive<Month>(
+    { 
+      _id: "",
+      src: "",
+      caption: "",
+      designer: "",
+      user: session.user,
+      likes: [],
+      comments: [],
+      isPublic: false
+    } );
+  
   const currentTab = "All";
   const prompt = "What's on your mind?";
 </script>
@@ -58,9 +82,10 @@
             <div class="column is-two-fifths">
                 
                 <!-- CARD -->
+                <month-edit :month="newMonth" @save="months.createMonth(newMonth)">
+                </month-edit>
 
                 <month-view v-for="month in months.list" :key= "month._id" :month="month">
-
                 </month-view>
               </div>
               <div class="column is-one-quarter">

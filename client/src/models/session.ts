@@ -1,49 +1,66 @@
-import { reactive } from "vue";
+
 import router from "../router";
 import * as users from "../models/user";
 import { useMessages } from "./notifications";
+import { api } from "./myFetch";
+import { defineStore } from "pinia";
 
-const session = reactive({
-    user: null as users.User | null,
-    destinationUrl: null as string | null,
-})
-
-export async function Login(email: string, password: string) {
-    const user = users.list.find(u => u.email === email);
-    const messages = useMessages();
-
-    try {
-        if(!user){
-            throw { message: "Following user not found. User: " + email };
-        } 
-        if(user.password !== password){
-            throw { message: "Incorrect Password" };
-        }
-        messages.notifications.push({
-            type: "success",
-            message: `Welcome back ${user.firstname}`,
-        });
+export const useSession = defineStore('session', {
+    state: () => ({
+        user: null as users.User | null,
+        destinationUrl: null as string | null,
+    }),
+    actions: {
+        async Login(email: string, password: string) {
+            const messages = useMessages();
+            try {
+                const user = await this.api("users/login", { email, password });
+                if(user){
+                    messages.notifications.push({
+                        type: "success",
+                        message: `Welcome back ${user.firstname}`,
+                    });
+                }
+                this.user = user;
+                router.push(this.destinationUrl ?? '/calendar');
+            } catch (error: any){
+                messages.notifications.push({
+                    type: "danger",
+                    message: error.message,
+                });
+                console.table(messages.notifications)
+            }
         
-        session.user = user;
-        console.log(session.destinationUrl)
+           
+        },
+        Logout(){
+            this.user = null;
+            router.push('/login');
+        },
+        async api(url: string, data?: any, method?: 'GET' | 'POST' | 'PUT' | 'DELETE', headers: any={}){
+            const messages = useMessages();
 
-        navigateToDeepLink();
-    } catch (error: any){
-        messages.notifications.push({
-            type: "danger",
-            message: error.message,
-        });
-    }
+            if(this.user?.token){
+                headers.Authorization = `Bearer ${this.user.token}`;
+            }
+
+            try{
+                const response = await api(url, data, method, headers);
+                if(response.errors?.length){
+                    throw {message: response.errors.join(', ')};
+                }
+                return await response.data;
+            } catch (error: any){
+                messages.notifications.push({
+                    type: "danger",
+                    message: error.message,
+                });
+            }
+        }
+    },
+})
+export interface ApiResult {
+    data: any;
+    errors?: string[];
+    success: boolean;
 }
-
-export function navigateToDeepLink()
-{
-    router.push(session.destinationUrl ?? '/');
-}
-
-export function Logout() {
-    session.user = null;
-    router.push('/login');
-}
-
-export default session;

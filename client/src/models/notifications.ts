@@ -3,9 +3,7 @@ import { defineStore } from 'pinia'
 export const useMessages = defineStore('messages', {
   
     state: () => ({
-        notifications: [
-            { type: 'primary', message: 'Welcome to your digital diary!' },
-        ] 
+        notifications: [] as Notifications[]
     }),
     actions: {
         close(index: number) {
@@ -13,3 +11,7 @@ export const useMessages = defineStore('messages', {
         }
     }
 })
+export interface Notifications {
+    type: 'success' | 'danger' | 'warning' | 'info';
+    message: string;
+}

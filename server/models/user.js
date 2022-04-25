@@ -49,7 +49,7 @@ const list = [
         lastname: 'Han',
         handle: 'juli',
         password: 'hello',
-        email: 'julihan.com',
+        email: 'julihan@gmail.com',
         pic:'https://randomuser.me/api/portraits/women/21.jpg',
         id: 5,
     },

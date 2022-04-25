@@ -9,11 +9,10 @@ GET http://localhost:3001/api/users/handle/shivi
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
 
 ###
-GET http://localhost:3001/api/users/62579361ff42970efb202add
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
+GET http://localhost:3001/api/users/62665f5510330fac1ebfce25
 
 ###
-DELETE  http://localhost:3001/api/users/62579361ff42970efb202add
+DELETE  http://localhost:3001/api/users/62665f5510330fac1ebfce25
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
 
 
@@ -21,34 +20,26 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3Z
 ###
 POST http://localhost:3001/api/users
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
-
 {
     "firstname": "Shivi",
     "lastname": "hey",
     "handle": "shiv",
-    "password": "cof",
-    "email": "shiv@gmail.com",
+    "password": "coffee",
+    "email": "shivi@gmail.com",
     "pic": "https://randomuser.me/api/portraits/women/21.jpg"
 }
 
 ###
-PATCH  http://localhost:3001/api/users/2
+PATCH  http://localhost:3001/api/users/62665f5510330fac1ebfce25
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
-
 {
-
-    "lastname": "Putin III",
-    "password": "Ukraine",
-    "email": "save@ukraine.com"
+    "password": "Ukraine"
    
 }
 
 ###
 POST  http://localhost:3001/api/users/login
 Content-Type: application/json
-
 {
 
     "email": "shiv@gmail.com",
@@ -58,4 +49,3 @@ Content-Type: application/json
 
 ###
 POST  http://localhost:3001/api/users/seed
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3ZWZmNDI5NzBlZmIyMDJhZTEiLCJmaXJzdG5hbWUiOiJTaGl2aSIsImxhc3RuYW1lIjoiaGV5IiwiaGFuZGxlIjoic2hpdiIsImVtYWlsIjoic2hpdkBnbWFpbC5jb20iLCJwaWMiOiJodHRwczovL3JhbmRvbXVzZXIubWUvYXBpL3BvcnRyYWl0cy93b21lbi8yMS5qcGciLCJpZCI6NiwiaWF0IjoxNjUwMzExMDQyfQ.GcuNIXHFODaZoP2hivad-__DggiE2v9O5tLQTyurAII
