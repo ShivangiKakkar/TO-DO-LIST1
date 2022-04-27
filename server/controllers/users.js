@@ -14,6 +14,8 @@ app
         }).catch(next);
     })
     .get('/handle/:handle', (req, res, next) => {
+        console.log("INSIDE USER CONTROLLER")
+        console.log("HANDLE CHECK"+req.params.handle)
         userModel.getByHandle(req.params.handle)
         .then(user => {
             res.send({ success: true, errors: [],data: user});

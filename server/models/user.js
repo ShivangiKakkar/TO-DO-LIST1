@@ -65,7 +65,9 @@ async function get(id){
 }
 
 async function getByHandle(handle){
-    const user = await collection.findOne({ handle });
+    console.log("HANDLE"+handle);
+    
+    //const user = await collection.findOne( handle );
     if(!user){
         throw { statusCode:404, message: 'User not found' };
     }
@@ -131,7 +133,7 @@ module.exports = {
         if(!user.handle){
             throw { statusCode:400, message: 'Handle is required' };
         }
-        user.password = await bcrypt.hash(user.password, +process.env.SALT_ROUNDS);
+        user.password = await bcrypt.hash(user.password, + process.env.SALT_ROUNDS);
         console.log(user);
 
         const result = await collection.insertOne(user);

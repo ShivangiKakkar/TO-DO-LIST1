@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 import router from '../router';
-import { User } from '../models/user';
+import { list, User } from '../models/user';
 import { reactive } from 'vue';
 import { useSession } from '../models/session';
 

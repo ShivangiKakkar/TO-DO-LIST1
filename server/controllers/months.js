@@ -27,6 +27,7 @@ app
             .catch(next);
     })
     .post('/', (req, res, next) => {
+        //console.log("In the Controller -- POST req")
         req.body.owner = req.user.handle;
         monthModel.create(req.body)
             .then(month => { res.status(CREATED_STATUS).json({ success: true, errors: [], data: month }) })

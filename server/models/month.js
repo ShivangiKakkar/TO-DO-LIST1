@@ -152,11 +152,12 @@ function seed(){
 
 module.exports = {
     async create(month){
+        console.log(month);
         month.id = ++highestId;
 
         const result = await collection.insertOne(month);
         month = await get(result.insertedId);
-
+        
         return includeUser(month);
     },
     remove,
@@ -166,12 +167,8 @@ module.exports = {
 
         return Promise.all( months.map(x => includeUser(x)));
         
-        //promise all means you want all of these promises to happen
     },
     getCalendar,
     seed,
-}
-//getter -> every part of program 
-
-// one option -> module.exports.list = ()=>list.map(x=>({...x, password: undefined}) );
+};
 module.exports.get = get;

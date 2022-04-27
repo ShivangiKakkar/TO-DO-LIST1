@@ -8,8 +8,8 @@
 
     export default defineComponent({
     setup() {
-        const session = useSession();
-        const state = reactive({
+            const session = useSession();
+            const state = reactive({
             message: "Hey there! I am using Vue!",
             loggedInUser: session.user,
             currentTab: "created_by_me",

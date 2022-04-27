@@ -20,6 +20,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU3OTM3Z
 ###
 POST http://localhost:3001/api/users
 Content-Type: application/json
+
 {
     "firstname": "Shivi",
     "lastname": "hey",
@@ -32,6 +33,7 @@ Content-Type: application/json
 ###
 PATCH  http://localhost:3001/api/users/62665f5510330fac1ebfce25
 Content-Type: application/json
+
 {
     "password": "Ukraine"
    

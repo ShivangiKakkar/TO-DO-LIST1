@@ -5,6 +5,66 @@ export interface User{
     password: string;
     email: string;
     pic: string;
-    id: number | null;
-    token: string;
+    id: number;
+    token?: string;
 }
+export const list: User[] = [
+    {
+            firstname: 'Moshe',
+            lastname: 'Plotkin',
+            handle: 'jewpaltz',
+            password: 'vitaminwater',
+            email: 'mosheplotkin@gmail.com',
+            pic:'https://randomuser.me/api/portraits/men/76.jpg',
+            id: 1,
+    },
+        {
+        firstname: 'Shivangi',
+        lastname: 'Kakkar',
+        handle: 'shivi',
+        password: 'co',
+        email: 'sk',
+        pic: 'https://randomuser.me/api/portraits/women/21.jpg',
+        id: 2,
+    },
+    {
+        firstname: 'Vladimir',
+        lastname: 'Putin',
+        handle: 'putin',
+        password: 'longtable',
+        email: 'vladimirputin@gmail.com',
+        pic:'https://randomuser.me/api/portraits/men/8.jpg',
+        id: 3,
+    },
+    {
+        firstname: 'Joe',
+        lastname: 'Biden',
+        handle: 'joebiden',
+        password: 'birdsinging',
+        email: 'joebiden@gmail.com',
+        pic:'https://randomuser.me/api/portraits/men/76.jpg',
+        id: 4,
+    },
+    {
+        firstname: 'Juli',
+        lastname: 'Han',
+        handle: 'juli',
+        password: 'hello',
+        email: 'julihan.com',
+        pic:'https://randomuser.me/api/portraits/women/21.jpg',
+        id: 5,
+    },
+    
+    ];
+// export const list: User[] = [
+//    { 
+//     firstname: "",
+//     lastname: "",
+//     handle: "",
+//     password: "",
+//     email: "",
+//     pic: "",
+//     _id: null,
+//     token: "",
+//   },
+// ];

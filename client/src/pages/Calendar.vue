@@ -12,12 +12,14 @@
   const route = useRoute();
 
   const months = useMonths();
-  months.fetchMonths(route.params.handle as string);
+  
 
   const session = useSession();
+  const user = session.user;
+  console.log("IN CALENDAR"+ user.handle);
+  months.fetchMonths(user.handle as string);
   const newMonth = reactive<Month>(
     { 
-      _id: "",
       src: "",
       caption: "",
       designer: "",
@@ -82,13 +84,14 @@
             <div class="column is-two-fifths">
                 
                 <!-- CARD -->
-                <month-edit :month="newMonth" @save="months.createMonth(newMonth)">
-                </month-edit>
+                <!-- <month-edit :month="newMonth" @save="months.createMonth(newMonth)">
+                </month-edit> -->
 
                 <month-view v-for="month in months.list" :key= "month._id" :month="month">
                 </month-view>
               </div>
               <div class="column is-one-quarter">
+                  <!-- <month-view :month="newMonth"></month-view> -->
                   <article class="panel is-danger">
                       <p class="has-text-danger panel-heading has-background-danger-light">
                       Take Notes
