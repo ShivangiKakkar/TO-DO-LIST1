@@ -65,9 +65,9 @@ async function get(id){
 }
 
 async function getByHandle(handle){
-    console.log("HANDLE"+handle);
+    console.log("HANDLE-USERS-MODEL"+handle);
     
-    //const user = await collection.findOne( handle );
+    const user = await collection.findOne( {handle} );
     if(!user){
         throw { statusCode:404, message: 'User not found' };
     }

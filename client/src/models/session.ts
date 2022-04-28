@@ -38,12 +38,32 @@ export const useSession = defineStore('session', {
             router.push('/login');
         },
 
-        // async signup(){
-        //     const messages = useMessages();
-        //     try {
-
-
-        // },
+        async signup(firstname: string, lastname: string, handle: string, email: string, password: string, confirmPassword: string, pic: string) {
+            const messages = useMessages();
+            try {
+                if(password !== confirmPassword) {
+                    messages.notifications.push({
+                        type: "danger",
+                        message: "Wrong password confirmation",
+                    });
+                } else {
+                    const user = await this.api("users/", { firstname, lastname, handle, email, password, pic });
+                    if(user) {
+                    messages.notifications.push({
+                        type: "success",
+                        message: `Welcome ${user.firstname}`,
+                    });
+                    this.user = user;
+                    router.push(this.destinationUrl ?? '/calendar');
+                    }
+                }
+            } catch (error: any) {
+                messages.notifications.push({
+                    type: "danger",
+                    message: error.message,
+                });
+            }
+        },
 
         async api(url: string, data?: any, method?: 'GET' | 'POST' | 'PUT' | 'DELETE', headers: any={}){
             const messages = useMessages();

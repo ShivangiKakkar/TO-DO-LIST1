@@ -33,7 +33,7 @@ const { month } = defineProps<{month: Month}>();
                             <br />
                             <a>DEMO</a>
                             <br>
-                            <time datetime="2016-1-1">03:30 PM - 23 Apr 2022</time>
+                            <time datetime="2016-1-1">03:30 PM - 30 Apr 2022</time>
                         </div>
                 </div>
                 

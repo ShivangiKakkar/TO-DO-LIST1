@@ -35,8 +35,8 @@ const router = createRouter({
 //Guards
 router.beforeEach((to, from) => {
   const session = useSession();
-    if(session.destinationUrl == null && to.path != '/login'){
-      session.destinationUrl = to.path;
+    if(session.destinationUrl == null) {
+      session.destinationUrl == to.path;
     }
     const protectedUrls = ['/calendar', '/todo'];
 

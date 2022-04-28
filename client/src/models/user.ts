@@ -56,15 +56,3 @@ export const list: User[] = [
     },
     
     ];
-// export const list: User[] = [
-//    { 
-//     firstname: "",
-//     lastname: "",
-//     handle: "",
-//     password: "",
-//     email: "",
-//     pic: "",
-//     _id: null,
-//     token: "",
-//   },
-// ];
