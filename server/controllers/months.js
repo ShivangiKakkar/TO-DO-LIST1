@@ -8,7 +8,7 @@ const CREATED_STATUS = 201;
 app
     .get('/', (req, res, next) => {
         monthModel.getList()
-            .then(months => res.json({ success: true, errors: [], data: months }))
+            .then(months => {res.json({ success: true, errors: [], data: months })})
             .catch(next);
     })
     .get('/calendar', (req, res, next) => {

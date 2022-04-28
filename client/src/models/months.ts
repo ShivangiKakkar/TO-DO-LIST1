@@ -6,11 +6,12 @@ export const useMonths = defineStore('months', {
 
   state: () => ({
     list: [] as Month[],
+    //list2: [] as Month[],
     session: useSession(),
   }),
   actions: {
     async fetchMonths(handle: string = '') {
-      console.log("IN STORE "+handle)
+      console.log("IN STORE "+ handle)
       const months = await this.session.api('months/calendar/' + handle);
       this.list = months;
     },

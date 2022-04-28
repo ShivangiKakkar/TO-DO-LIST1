@@ -14,10 +14,14 @@
   const months = useMonths();
   months.fetchMonths(route.params.handle as string);
 
+
+
+  // months.fetchAllMonths();
+  // const monthList = months.list2;
+  
+
   const session = useSession();
-  //const user = session.user;
-  //console.log("IN CALENDAR"+ handle);
-  //months.fetchMonths(user.handle as string);
+  
   const newMonth = reactive<Month>(
     { 
       src: "",
@@ -104,6 +108,7 @@
                       </p>
                     <div class="panel-block">
                       <p class="control has-icons-left">
+                        <!-- V-MODEL ADD NOTES -->
                         <input class="input is-danger" type="text" placeholder="Search">
                         <span class="icon is-left">
                           <i class="fas fa-search" aria-hidden="true"></i>

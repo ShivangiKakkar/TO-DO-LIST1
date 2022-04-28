@@ -164,7 +164,7 @@ module.exports = {
     update,
     async getList(){
         const months = await collection.find({}).toArray();
-
+        console.log(months);
         return Promise.all( months.map(x => includeUser(x)));
         
     },

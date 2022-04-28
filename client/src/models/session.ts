@@ -51,10 +51,10 @@ export const useSession = defineStore('session', {
                     if(user) {
                     messages.notifications.push({
                         type: "success",
-                        message: `Welcome ${user.firstname}`,
+                        message: `Account created for ${user.firstname}`,
                     });
-                    this.user = user;
-                    router.push(this.destinationUrl ?? '/calendar');
+                    //this.user = user;
+                    router.push(this.destinationUrl ?? '/login');
                     }
                 }
             } catch (error: any) {
