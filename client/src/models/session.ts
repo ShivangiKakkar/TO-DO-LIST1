@@ -22,7 +22,7 @@ export const useSession = defineStore('session', {
                     });
                 }
                 this.user = user;
-                router.push(this.destinationUrl ?? '/calendar');
+                router.push(this.destinationUrl ?? '/');
             } catch (error: any){
                 messages.notifications.push({
                     type: "danger",

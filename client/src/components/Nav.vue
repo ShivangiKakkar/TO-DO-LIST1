@@ -59,8 +59,8 @@ import Notifications from './Notifications.vue';
     </nav>
 </template>
 
-    <style>
+<style>
     .navbar{
       background-color: rgb(217, 217, 248);
     }
-    </style>
+</style>

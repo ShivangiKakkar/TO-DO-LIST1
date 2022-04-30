@@ -1,52 +1,37 @@
-// import { defineStore } from 'pinia'
-// import { api } from './myFetch';
-// import { User } from './user';
+import { defineStore } from 'pinia'
+import { useSession } from './session';
+import { User } from './user';
 
-// export const useTasks = defineStore('tasks', {
+export const useTasks = defineStore('tasks', {
 
-//   state: () => ({
-//     list: [] as Task[],
-//   }),
-//   actions: {
-//     async fetchMonths() {
-//       const tasks = await api('tasks');
-//       this.list = tasks.data;
-//     }
-//   }
-// })
+  state: () => ({
+    list: [] as Task[],
+    session: useSession(),
+    }),
 
+  actions: {
+    async fetchTasks(handle: string = '') {
+      console.log("IN STORE(TASKS) "+ handle)
+      const tasks = await this.session.api('tasks/todo/' + handle);
+      this.list = tasks;
+    },
+    async fetchAllTasks() {
+      const tasksList = await this.session.api('tasks');
+      this.list = tasksList;
+    },
+    async createTask(task: Task) {
+      const newTask = await this.session.api('tasks', task);
+      this.list.push(newTask);
+    }
+  }
+})
 
-// export interface Task{
-//     title: string;
-//     isDone: boolean;
-//     author: User;
-//     assignedTo: string;
-//     date: string;
-//     id: number;
-// }
 export interface Task{
+    _id?: string;
     title: string;
     isDone: boolean;
     author: string;
     assignedTo: string;
+    user?: User;
     date: string;
-    id: number;
 }
-
-export const taskList: Task[] = [
-{
-    title: 'Do mid-term', 
-    isDone: false, 
-    author: 'jewpaltz', 
-    assignedTo: 'sk', 
-    date: '',
-    id:1
-},
-{ title: 'Add some more features', 
-isDone: true, 
-author: 'sk', 
-assignedTo: 'vp',  
-date: '',
-id: 2
-},               
-];

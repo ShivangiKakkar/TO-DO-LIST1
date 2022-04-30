@@ -4,8 +4,9 @@ const express = require('express')
 const userModel = require('./models/user');
 
 const usersController = require('./controllers/users');
-//const tasksController = require('./controllers/tasks');
+const tasksController = require('./controllers/tasks');
 const monthsController = require('./controllers/months');
+//const notesController = require('./controllers/notes');
 const {requireAuth} = require('./models/auth');
 
 const app = express()
@@ -41,8 +42,9 @@ app
   res.send('Heyy, you are on the root of API. For the best class ever - ' + process.env.BEST_CLASS_EVER);
 })
 .use('/api/users', usersController)
-//.use('/api/tasks', /*requireAuth,*/ tasksController)
-.use('/api/months', /*requireAuth,*/ monthsController)
+.use('/api/tasks', /*requireAuth,*/ tasksController)
+.use('/api/months', monthsController)
+//.use('/api/notes', notesController)
 
 .use((err, req, res, next) => {
   console.error(err);

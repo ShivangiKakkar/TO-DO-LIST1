@@ -31,7 +31,6 @@ const { month } = defineProps<{month: Month}>();
                 <div class="content">
                             {{ month.caption }} 
                             <br />
-                            <a>DEMO</a>
                             <br>
                             <time datetime="2016-1-1">03:30 PM - 30 Apr 2022</time>
                         </div>
@@ -39,46 +38,21 @@ const { month } = defineProps<{month: Month}>();
                 
             <div class="card-footer">
               <p class="card-footer-item">
-                <span>Share on <a href="#"> Facebook</a></span>
+                <span>Share on
+                  <a href="#">Facebook</a>
+                </span>
               </p>
               <p class="card-footer-item">
-                <span>View on <a href="#"> Twitter</a></span>
+                <span>Tweet on
+                  <a href="#">Twitter</a>
+                </span>
               </p>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </section>
-    <!-- <div class="card">
-                    <div class="class-image">
-                      <figure class="image is-2by3">
-                        <img class="month_img" :src="month.src" alt="Placeholder image">
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-left">
-                                <figure class="image is-48x48">
-                                    <img :src="month.user.pic" alt="Placeholder image">
-                                </figure>
-                            </div>
-
-                            <div class="media-content">
-                                <p class="title is-4">{{month.user.firstname}} {{month.user.lastname}}</p>
-                                <p class="subtitle is-6">@{{month.user.handle}}</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            {{ month.caption }} 
-                            <br />
-                            <a>Jan planner</a>
-                            <br>
-                            <time datetime="2016-1-1">03:30 PM - 1 Mar 2022</time>
-                        </div>
-                    </div>
-                </div> -->
 </template>
 
 

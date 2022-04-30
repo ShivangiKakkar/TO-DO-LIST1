@@ -139,9 +139,6 @@ import Footer from '../components/Footer.vue';
 </template>
 
 <style scoped>
-.section{
-    background-color: rgb(248, 243, 239)
-}
 
 .pic{
     width: 400px;
@@ -163,6 +160,9 @@ ul{
 }
 .gratitude {
     background-color:  rgb(234, 234, 247);
+}
+Footer{
+    margin-top: 2rem;
 }
 
 </style>
