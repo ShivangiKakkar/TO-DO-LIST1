@@ -8,9 +8,9 @@ export const allUsers = defineStore('users', {
       }),
       actions: {
         async fetchUsers() {
-            const allusers = await this.session.api('users/');
+            const allusers = await this.session.api('users');
             this.list = allusers;
-            console.log("FETCH ALL USERS  " +allusers);
+            console.log("FETCH ALL USERS  " + allusers.list);
           }
         }
 })

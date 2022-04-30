@@ -1,8 +1,6 @@
 <script setup lang="ts">
     import { reactive } from "vue";
-    import { useSession } from '../models/session';
     import { Task, useTasks } from "../models/tasks";
-    import { Note, useNotes } from "../models/notes";
     import { useRoute } from "vue-router";
     import AddTasks from "../components/AddTasks.vue";
     import Footer from "../components/Footer.vue";
@@ -13,21 +11,11 @@
     const tasks = useTasks();
     tasks.fetchTasks(route.params.handle as string);
 
-    //const taskList = tasks.fetchAllTasks();
-
-    // NOTES LIST
-    
-
-    const session = useSession();
-
-    //const users = session.users;
-
     const newTask = reactive<Task>(
     { 
       title: "",
       author: "",
       assignedTo: "",
-      user: session.user,
       date: "",
       isDone: false
     } );

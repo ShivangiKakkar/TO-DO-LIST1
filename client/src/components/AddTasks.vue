@@ -1,13 +1,12 @@
 
 <script setup lang="ts">
 import { Task } from "../models/tasks";
-import {User} from "../models/user";
-import { useRoute } from "vue-router";
-import { useSession } from '../models/session';
+import { allUsers } from "../models/user";
 const { task } = defineProps<{task: Task}>();
 
-const route = useRoute();
-const session = useSession();
+
+const users = allUsers()
+users.fetchUsers();
 
 
 </script>
@@ -18,7 +17,7 @@ const session = useSession();
         <input class="input" type="text" v-model="task.title" placeholder="Add a new task">
         <div class="select is-normal">
             <select v-model="task.assignedTo">
-                <option v-for="user in session.users" :key="user._id" :user="user">
+                <option v-for="user in users.list" :key="user.id" :user="user">
                 </option>
             </select>
         </div>

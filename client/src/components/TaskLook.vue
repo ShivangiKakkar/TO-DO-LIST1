@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Task } from "../models/tasks";
+import { allUsers } from "../models/user";
 const { task } = defineProps<{task: Task}>();
-
 
 </script>
 
