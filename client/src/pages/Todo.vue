@@ -2,6 +2,7 @@
     import { reactive } from "vue";
     import { useSession } from '../models/session';
     import { Task, useTasks } from "../models/tasks";
+    import { Note, useNotes } from "../models/notes";
     import { useRoute } from "vue-router";
     import AddTasks from "../components/AddTasks.vue";
     import Footer from "../components/Footer.vue";
@@ -13,6 +14,9 @@
     tasks.fetchTasks(route.params.handle as string);
 
     //const taskList = tasks.fetchAllTasks();
+
+    // NOTES LIST
+    
 
     const session = useSession();
 
@@ -50,7 +54,7 @@
                 <!-- LOOP THROUGH TASKS -->
                 <task-look v-for="task in tasks.list" :key="task._id" :task="task"></task-look>
                 <div class="panel-block">
-                    <button @onClick="deleteTasks" class="button is-info is-outlined is-fullwidth">
+                    <button class="button is-info is-outlined is-fullwidth">
                     Reset all tasks
                     </button>
                 </div>
@@ -72,7 +76,7 @@ a {
     color: rgb(50,120,198);
 }
 Footer{
-    margin-top: 9rem;
+    margin-top: 14.5rem;
 }
 .select, .date{
     margin-left: 0.3rem;

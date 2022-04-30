@@ -3,7 +3,7 @@
 import { Task } from "../models/tasks";
 import {User} from "../models/user";
 import { useRoute } from "vue-router";
-    import { useSession } from '../models/session';
+import { useSession } from '../models/session';
 const { task } = defineProps<{task: Task}>();
 
 const route = useRoute();

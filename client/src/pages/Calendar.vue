@@ -6,6 +6,7 @@
   import MonthEdit from "../components/MonthEdit.vue";
   import { useSession } from "../models/session";
   import Notes from "../components/Notes.vue";
+  import Footer from "../components/Footer.vue";
 
   const route = useRoute();
 
@@ -99,6 +100,7 @@
               </div>             
         </div>
     </div>
+    <Footer/>
 </template>
 
 

@@ -6,7 +6,7 @@ const userModel = require('./models/user');
 const usersController = require('./controllers/users');
 const tasksController = require('./controllers/tasks');
 const monthsController = require('./controllers/months');
-//const notesController = require('./controllers/notes');
+const notesController = require('./controllers/notes');
 const {requireAuth} = require('./models/auth');
 
 const app = express()
@@ -44,7 +44,7 @@ app
 .use('/api/users', usersController)
 .use('/api/tasks', /*requireAuth,*/ tasksController)
 .use('/api/months', monthsController)
-//.use('/api/notes', notesController)
+.use('/api/notes', notesController)
 
 .use((err, req, res, next) => {
   console.error(err);

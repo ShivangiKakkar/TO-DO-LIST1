@@ -1,4 +1,30 @@
-<script lang="ts">
+<script setup lang="ts">
+import { reactive } from "vue";
+import { useRoute } from "vue-router";
+import { useSession } from '../models/session';
+import NotesLook from "./NotesLook.vue";
+import AddNotes from "./AddNotes.vue";
+ import { Note, useNotes } from "../models/notes";
+
+
+
+
+
+const route = useRoute();
+
+
+const notes = useNotes();
+notes.fetchNotes(route.params.handle as string);
+
+
+const session = useSession();
+
+const newNote = reactive<Note>(
+    { 
+      title: "",
+      creater: "",
+      user: session.user,
+    } );
 
 </script>
 <template>
@@ -12,43 +38,14 @@
                         <a>Wishlist</a>
                         <a>Brain Dump</a>
                       </p>
-                    <div class="panel-block">
-                      <input class="input" type="text" placeholder="Create a new note">
-                      <div class="panel-block">
-                        <button class="button is-danger is-outlined is-fullwidth">
-                          <i class="fas fa-add" aria-hidden="true"></i>
-                        </button>
-                      </div>
-                    </div>
-                <a class="panel-block is-active">
-                  <span class="panel-icon">
-                    <i class="fa-solid fa-x" aria-hidden="true"></i>
-                  </span>
-                  Milk
-                </a>
-                <a class="panel-block">
-                  <span class="panel-icon">
-                    <i class="fa-solid fa-x" aria-hidden="true"></i>
-                  </span>
-                  Sugar
-                </a>
-                <a class="panel-block">
-                  <span class="panel-icon">
-                    <i class="fa-solid fa-x" aria-hidden="true"></i>
-                  </span>
-                  Green Tea
-                  </a>
-                  <a class="panel-block">
-                    <span class="panel-icon">
-                      <i class="fa-solid fa-x" aria-hidden="true"></i>
-                    </span>
-                    Nuts
-                  </a>
-                   <div class="panel-block">
+                      <!--ADD NOTES -->
+                <add-notes :note="newNote" @save="notes.createNote(newNote)"></add-notes>
+                <notes-look v-for="note in notes.list" :key="note._id" :note="note"></notes-look>
+                   <!-- <div class="panel-block">
                     <button class="button is-danger is-outlined is-fullwidth">
                     Clear all notes
                     </button>
-                </div>
+                </div> -->
             </article>
     </div>
 </template>

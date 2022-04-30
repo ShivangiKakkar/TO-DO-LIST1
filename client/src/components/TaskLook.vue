@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Task } from "../models/tasks";
 const { task } = defineProps<{task: Task}>();
-import AddTasks from "../components/AddTasks.vue";
+
 
 </script>
 
