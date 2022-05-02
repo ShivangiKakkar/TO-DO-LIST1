@@ -19,7 +19,7 @@
   
 
   const session = useSession();
-  console.log("SESSION USER "+session.user); //user object
+  console.log("SESSION USER "+ session.user); //user object
   //console.log("SESSION USERS "+session.users.list);
   const newMonth = reactive<Month>(
     { 
@@ -43,38 +43,38 @@
             <div class="column is-one-quarter">
                 <aside class="menu">
                     <p class="menu-label">
-                      2022
+                      Printable 2022 Monthly Calendars
                     </p>
                     <ul class="menu-list">
-                      <li><a>January</a></li>
-                      <li><a>February</a></li>
-                      <li><a>March</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/01-JAN-Elegant-January-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">January</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/02-FEB-Elegant-February-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">February</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/03-MAR-Elegant-March-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">March</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/04-APR-Elegant-April-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">April</a></li>
                     </ul>
                     <p class="menu-label">
                       Current Quater
                     </p>
                     <ul class="menu-list">
                       <li>
-                        <a class="is-active">April</a>
+                        <a class="is-active">May</a>
                         <ul>
-                          <li><a>Monthly Calendar</a></li>
-                          <li><a>Habit Tracker</a></li>
-                          <li><a>Fitness Tracker</a></li>
+                          <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/05-MAY-Elegant-May-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">Calendar</a></li>
+                          <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/Monthly-habit-tracker-printable-green-PDF-SaturdayGift.pdf">Habit Tracker</a></li>
+                          <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/Free-printable-weekly-habit-tracker-PDF-pink-SaturdayGift.pdf">Weekly Tracker</a></li>
                         </ul>
                       </li>
-                      <li><a>May</a></li>
-                      <li><a>June</a></li>
-                      <li><a>July</a></li>
-                      <li><a>August</a></li>
-                      <li><a>September</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/06-JUN-Elegant-June-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">June</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/07-JUL-Elegant-July-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">July</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/08-AUG-Elegant-August-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">August</a></li>
                     </ul>
                     <p class="menu-label">
                       Last Quater
                     </p>
                     <ul class="menu-list">
-                      <li><a>October</a></li>
-                      <li><a>November</a></li>
-                      <li><a>December</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/09-SEP-Elegant-September-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">September</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/10-OCT-Elegant-October-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">October</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/11-NOV-Elegant-November-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">November</a></li>
+                      <li><a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/12-DEC-Elegant-December-2022-calendar-Free-Printable-Horizontal-Landscape-Black-White-Monday-Start-SaturdayGift.pdf">December</a></li>
                     </ul>
                     <a class="button" target="_blank" href="https://www.calendarlabs.com/templates/2022/2022-printable-calendar-pdf-03.pdf">
                         <span class="icon">

@@ -30,7 +30,7 @@ import Footer from '../components/Footer.vue';
                             <p class="gratitude">“Unless commitment is made, there are only promises and hopes; but no plans.” - Peter F. Drucker</p>
                             <strong>Start planning your weeks ^.^</strong>
                             <br>
-                            <a>Get your weekly planner</a>
+                            <a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/NEW-Weekly-Planner-Template-SaturdayGift.pdf">Get your weekly planner</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ import Footer from '../components/Footer.vue';
                                 Start your gratitude journey with us :)
                             </strong>
                             <br>
-                            <a>Get your Gratitude Journal</a>
+                            <a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/Gratitude-Holiday-Gift-Tags-SaturdayGift.pdf">Get your Gratitude Cards</a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ import Footer from '../components/Footer.vue';
                             <p class="gratitude">“A feeble body weakens the mind.” - Jean-Jacques Rousseau</p>
                             <strong>Start your fitness journey today ;_;</strong>
                             <br>
-                            <a>Get your fitness planner</a>
+                            <a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/21-day-habit-tracker-printable-green-PDF-SaturdayGift.pdf">21-days of workout challenge tracker</a>
                             <br>
                         </div>
                     </div>
@@ -126,7 +126,7 @@ import Footer from '../components/Footer.vue';
                             <p class="gratitude">“Life is habit. Or rather life is a succession of habits.” -Samuel Beckett</p>
                             <strong>Analyse your habit patterns o_O</strong>
                             <br>
-                            <a>Get your habit tracker</a>
+                            <a target="_blank" href="https://www.saturdaygift.com/wp-content/uploads/Habit-calendar-printable-pink-PDF-SaturdayGift.pdf">Get your habit tracker</a>
                             <br>
                         </div>
                     </div>
