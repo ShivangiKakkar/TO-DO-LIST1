@@ -35,12 +35,15 @@
                 <add-tasks :task="newTask" @save="tasks.createTask(newTask)">
                 </add-tasks>
                 <p class="panel-tabs">
-                    <a class="is-active">All Tasks</a>
-                    <a>Assigned to me</a>
-                    <a>Completed</a>
+                    <a :class="{ 'is-active': tasks.tab_selection == 'all_tasks' }" @click="tasks.tab_selection = 'all_tasks'">All Tasks</a>
+                    <a :class="{ 'is-active': tasks.tab_selection == 'assigned_to_me' }" @click="tasks.tab_selection = 'assigned_to_me'">Assigned to me</a>
+                    <a :class="{ 'is-active': tasks.tab_selection == 'completed' }" @click="tasks.tab_selection = 'completed'">Completed</a>
                 </p>
                 <!-- LOOP THROUGH TASKS -->
-                <task-look v-for="task in tasks.list" :key="task._id" :task="task"></task-look>
+                <div>
+                <task-look v-for="task in tasks.filterTasks()" :key="task._id" :task="task"></task-look>
+                </div>
+
                 <div class="panel-block">
                     <button class="button is-info is-outlined is-fullwidth">
                     Reset all tasks
@@ -64,7 +67,7 @@ a {
     color: rgb(50,120,198);
 }
 Footer{
-    margin-top: 14.5rem;
+     margin-top: 20rem; 
 }
 .select, .date{
     margin-left: 0.3rem;

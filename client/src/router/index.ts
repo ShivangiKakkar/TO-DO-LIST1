@@ -32,7 +32,7 @@ router.beforeEach((to, from) => {
     if(session.destinationUrl == null) {
       session.destinationUrl == to.path;
     }
-    const protectedUrls = ['/calendar', '/todo'];
+    const protectedUrls = ['/','/calendar', '/todo'];
 
     if(protectedUrls.includes(to.path.toLowerCase())) {
       console.log('requires login');

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useSession } from './session';
+import { api } from './myFetch';
 
 export const allUsers = defineStore('users', {
     state: () => ({
@@ -10,7 +11,6 @@ export const allUsers = defineStore('users', {
         async fetchUsers() {
             const allusers = await this.session.api('users');
             this.list = allusers;
-            console.log("FETCH ALL USERS  " + allusers.list);
           }
         }
 })

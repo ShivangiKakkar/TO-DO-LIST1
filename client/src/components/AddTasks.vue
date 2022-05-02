@@ -6,7 +6,7 @@ const { task } = defineProps<{task: Task}>();
 
 
 const users = allUsers()
-users.fetchUsers();
+const list = users.fetchUsers();
 
 
 </script>
@@ -15,9 +15,10 @@ users.fetchUsers();
 <template>
     <div class="panel-block">
         <input class="input" type="text" v-model="task.title" placeholder="Add a new task">
-        <div class="select is-normal">
+        <div class="select">
             <select v-model="task.assignedTo">
-                <option v-for="user in users.list" :key="user.id" :user="user">
+                <option v-for="user in users.list" :key="users.$id" :user="user">
+                {{ user.handle }}
                 </option>
             </select>
         </div>

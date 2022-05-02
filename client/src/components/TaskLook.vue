@@ -6,29 +6,43 @@ const { task } = defineProps<{task: Task}>();
 </script>
 
 <template>
+
     <label class="panel-block">
-        <input type="checkbox" checked>
-            {{task.title}}
-        <div class="task_assignee">
-            Assigned To: {{task.assignedTo}}
+        <input type="checkbox" v-model="task.isDone">
+        <div class="container">
+
+            <div class="task_title">{{task.title}}</div>
+
+            <div class="task_assignee">Assigned To: {{task.assignedTo}}</div>
+
+            <div class="task_author">Assigned by: {{task.user.handle}}</div>
+
+            <div class="task_date">Due: {{task.date}}</div>
+
         </div>
-        <div class="task_author">
-            Assigned by: {{task.user.handle}}
-        </div>
-        <div class="task_date">
-            Due: {{task.date}}
-        </div>
+
     </label>
 </template>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task_title{
+    color: palevioletred;
+}
 .task_assignee{
-    margin-left: 4rem;
+    color: rgb(249, 172, 142);
+
 }
 .task_author{
-    margin-left: 7rem;
+    color: burlywood;
+
 }
 .task_date{
-    margin-left: 8rem;
+    color: rgb(191, 189, 189);
+    margin-right: 3px;
 }
 </style>
