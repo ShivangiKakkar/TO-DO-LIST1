@@ -34,10 +34,19 @@ export const useTasks = defineStore('tasks', {
       const newTask = await this.session.api('tasks', task);
       this.list.push(newTask);
     },
-    async markAsDone(task: Task) {
-      const updatedTask = await this.session.api('tasks/' + task._id, { done: true });
+    async markAsDone(_id: string = '', task:Task) {
+      const updatedTask = await this.session.api('tasks/todo/myTasks/' + _id, {}, 'PATCH');
+      this.list.push(updatedTask);
       
     },
+
+    async deleteTask(_id: string = ''){
+      const task_to_be_deleted = await this.session.api('tasks/todo/myTasks/' + _id ,{},'DELETE');
+      let i = this.list.map((task) => task._id).indexOf(_id);
+      this.list.splice(i,1);
+    },
+
+
     filterTasks() {
       const session = useSession();
       const route = useRoute();

@@ -8,7 +8,7 @@ const { task } = defineProps<{task: Task}>();
 <template>
 
     <label class="panel-block">
-        <input type="checkbox" v-model="task.isDone">
+        <button><input type="checkbox" v-model="task.isDone" @click="$emit('update')"></button>
         <div class="container">
 
             <div class="task_title">{{task.title}}</div>
@@ -18,6 +18,8 @@ const { task } = defineProps<{task: Task}>();
             <div class="task_author">Assigned by: {{task.user.handle}}</div>
 
             <div class="task_date">Due: {{task.date}}</div>
+
+            <button class="trash"><i class="fas fa-trash-alt" @click="$emit('remove')"></i></button>
 
         </div>
 
@@ -31,7 +33,7 @@ const { task } = defineProps<{task: Task}>();
 }
 
 .task_title{
-    color: palevioletred;
+   color: rgb(50,120,198);
 }
 .task_assignee{
     color: rgb(249, 172, 142);
@@ -42,7 +44,19 @@ const { task } = defineProps<{task: Task}>();
 
 }
 .task_date{
-    color: rgb(191, 189, 189);
+    color: rgb(244, 143, 145);
     margin-right: 3px;
+}
+button{
+    border-style: none;
+    background: none;
+    
+}
+.trash{
+    color: lightgray;
+}
+
+.trash :hover{
+    color:rgb(249, 67, 67);
 }
 </style>

@@ -37,13 +37,15 @@ app
             .then(task => { res.status(CREATED_STATUS).json({ success: true, errors: [], data: task }) })
             .catch(next);
     })
-    .delete('/:id', (req, res, next) => {
+    .delete('/todo/myTasks/:id', (req, res, next) => {
+        console.log("DELETE TASK-CONTROLLERS_" + req.params.id);
         taskModel.remove(req.params.id)
             .then(task => res.json ({ success: true, errors: [], data: task }))
             .catch(next);
 
     })
-    .patch('/:id', (req, res, next) => {
+    .patch('/todo/myTasks/:id', (req, res, next) => {
+        console.log("PATCH TASK-CONTROLLERS-" + req.params.id);
         taskModel.update(req.params.id, req.body)
             .then(task => { res.json({ success: true, errors: [], data: task }) })
             .catch(next);

@@ -24,7 +24,7 @@ const newNote = reactive<Note>(
     { 
       title: "",
       creater: "",
-      user: session.user,
+      user: session.user
     });
 
 </script>

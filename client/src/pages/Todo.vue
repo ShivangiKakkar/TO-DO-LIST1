@@ -55,13 +55,13 @@
                 </p>
                 <!-- LOOP THROUGH TASKS -->
                 <div>
-                <task-look v-for="task in tasks.filterTasks()" :key="tasks.$id" :task="task"></task-look>
+                <task-look v-for="task in tasks.filterTasks()" :key="tasks.$id" :task="task" @remove="tasks.deleteTask(task._id)" @update="tasks.markAsDone(task._id, task)"></task-look>
                 </div>
 
                 <div class="panel-block">
-                    <button class="button is-info is-outlined is-fullwidth">
+                    <!-- <button class="button is-info is-outlined is-fullwidth">
                     Reset all tasks
-                    </button>
+                    </button> -->
                 </div>
             </nav>
         </div>
