@@ -4,7 +4,7 @@ import { useRoute } from "vue-router";
 import { useSession } from '../models/session';
 import NotesLook from "./NotesLook.vue";
 import AddNotes from "./AddNotes.vue";
- import { Note, useNotes } from "../models/notes";
+import { Note, useNotes } from "../models/notes";
 
 
 
@@ -17,6 +17,7 @@ const notes = useNotes();
 notes.fetchNotes(route.params.handle as string);
 
 
+
 const session = useSession();
 
 const newNote = reactive<Note>(
@@ -24,7 +25,7 @@ const newNote = reactive<Note>(
       title: "",
       creater: "",
       user: session.user,
-    } );
+    });
 
 </script>
 <template>
@@ -40,7 +41,7 @@ const newNote = reactive<Note>(
                       </p>
                       <!--ADD NOTES -->
                 <add-notes :note="newNote" @save="notes.createNote(newNote)"></add-notes>
-                <notes-look v-for="note in notes.list" :key="note._id" :note="note"></notes-look>
+                <notes-look v-for="note in notes.list" :key="note._id" :note="note" @remove="notes.deleteNote(note)"></notes-look>
                    <!-- <div class="panel-block">
                     <button class="button is-danger is-outlined is-fullwidth">
                     Clear all notes

@@ -17,7 +17,13 @@ export const useNotes = defineStore('notes', {
     async createNote(note: Note) {
       const newNote = await this.session.api('notes', note);
       this.list.push(newNote);
+    },
+    async deleteNote(note: Note){
+      const note_to_be_deleted = await this.session.api('notes', note, 'DELETE');
+      console.log(note_to_be_deleted);
+      //this.list.splice(note_to_be_deleted);
     }
+
   }
 })
 

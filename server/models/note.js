@@ -47,7 +47,7 @@ async function getTodo(handle){
 
 async function remove(id){
     const note = await collection.findOneAndDelete({ _id: new ObjectId(id)});
-    
+    console.log("DELETE USER" + note.value)
     return includeUser(note.value);
 }
 

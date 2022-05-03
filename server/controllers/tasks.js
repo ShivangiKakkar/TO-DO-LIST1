@@ -20,6 +20,12 @@ app
             .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
             .catch(next);
     })
+    .get('/todo/myTasks/:handle', (req, res, next) => {
+        console.log("MYTASK--APII"+req.params.handle)
+        taskModel.getMyTasks(req.params.handle)
+            .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
+            .catch(next);
+    })
     .get('/:id', (req, res, next) => {
         taskModel.get(req.params.id)
             .then(task => { res.json({ success: true, errors: [], data: task }) })

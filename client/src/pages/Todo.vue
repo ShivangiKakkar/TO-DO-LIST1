@@ -1,27 +1,41 @@
 <script setup lang="ts">
-    import { reactive } from "vue";
+    import { ref } from "vue";
     import { Task, useTasks } from "../models/tasks";
     import { useRoute } from "vue-router";
     import AddTasks from "../components/AddTasks.vue";
     import Footer from "../components/Footer.vue";
     import TaskLook from "../components/TaskLook.vue";
     import Notes from "../components/Notes.vue";
+    import { useSession } from "../models/session";
 
     const route = useRoute();
     const tasks = useTasks();
+    const session = useSession();
     tasks.fetchTasks(route.params.handle as string);
+    //const mytasks = tasks.myTasks(route.params.handle as string);
 
-    const newTask = reactive<Task>(
+   
+
+    const newTask = ref<Task>(
     { 
       title: "",
       author: "",
-      assignedTo: "",
+      assignedTo: session.user?.handle ?? "",
       date: "",
-      isDone: false
+      isDone: false,
     } );
-    const currentTab = "All";
-  
-    
+    function saveTask(){
+        if(newTask){
+        tasks.createTask(newTask.value);
+        newTask.value = {
+            title: "",
+            author: "",
+            assignedTo: session.user?.handle ?? "",
+            date: "",
+            isDone: false
+         }
+    }
+    }
 </script>
 
 <template>
@@ -32,7 +46,7 @@
                 <p class="panel-heading has-text-info has-background-info-light">
                     To-Do List
                 </p>
-                <add-tasks :task="newTask" @save="tasks.createTask(newTask)">
+                <add-tasks :task="newTask" @save="saveTask()">
                 </add-tasks>
                 <p class="panel-tabs">
                     <a :class="{ 'is-active': tasks.tab_selection == 'all_tasks' }" @click="tasks.tab_selection = 'all_tasks'">All Tasks</a>
@@ -41,7 +55,7 @@
                 </p>
                 <!-- LOOP THROUGH TASKS -->
                 <div>
-                <task-look v-for="task in tasks.filterTasks()" :key="task._id" :task="task"></task-look>
+                <task-look v-for="task in tasks.filterTasks()" :key="tasks.$id" :task="task"></task-look>
                 </div>
 
                 <div class="panel-block">

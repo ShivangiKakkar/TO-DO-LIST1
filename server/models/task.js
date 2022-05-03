@@ -42,6 +42,13 @@ async function get(id){
     return includeUser(task);
 }
 
+async function getMyTasks(handle){
+    const tasks = await collection.find({ assignedTo: handle }).toArray();
+
+    return Promise.all( tasks.map(x=> includeUser(x) ) );
+
+}
+
 async function getTodo(handle){
     const tasks = await collection.find({ author: handle }).toArray();
 
@@ -82,6 +89,7 @@ module.exports = {
         return Promise.all( tasks.map(x => includeUser(x)));
     },
     getTodo,
+    getMyTasks,
     seed,
 }
 module.exports.get = get;

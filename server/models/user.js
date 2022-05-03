@@ -57,7 +57,6 @@ const list = [
 ];
 
 async function get(id){
-    
     const user = await collection.findOne({_id: new ObjectId(id)});
     console.log("ALL USERS (USERS_MODEL): "+id);
     if(!user){
@@ -67,8 +66,7 @@ async function get(id){
 }
 
 async function getByHandle(handle){
-    console.log("HANDLE(USERS_MODEL): "+handle);
-    
+    //console.log("HANDLE(USERS_MODEL): "+handle);
     const user = await collection.findOne( {handle} );
     if(!user){
         throw { statusCode:404, message: 'User not found' };

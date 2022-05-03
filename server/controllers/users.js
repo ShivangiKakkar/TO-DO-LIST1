@@ -33,6 +33,7 @@ app
             res.status(CREATED_STATUS).send({ success: true, errors: [],data: user});
         }).catch(next);
     })
+
     .delete('/:id', requireAuth,(req, res,next) => {
         userModel.remove(req.params.id)
         .then(user => {
