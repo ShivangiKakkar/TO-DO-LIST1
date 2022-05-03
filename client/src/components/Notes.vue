@@ -41,7 +41,7 @@ const newNote = reactive<Note>(
                       </p>
                       <!--ADD NOTES -->
                 <add-notes :note="newNote" @save="notes.createNote(newNote)"></add-notes>
-                <notes-look v-for="note in notes.list" :key="note._id" :note="note" @remove="notes.deleteNote(note)"></notes-look>
+                <notes-look v-for="note in notes.list" :key="note._id" :note="note" @remove="notes.deleteNote(note._id)"></notes-look>
                    <!-- <div class="panel-block">
                     <button class="button is-danger is-outlined is-fullwidth">
                     Clear all notes

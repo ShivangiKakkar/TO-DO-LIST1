@@ -13,14 +13,19 @@ export const useNotes = defineStore('notes', {
     async fetchNotes(handle: string = '') {
       const notes = await this.session.api('notes/todo/' + handle);
       this.list = notes;
+      console.log(handle);
     },
     async createNote(note: Note) {
       const newNote = await this.session.api('notes', note);
       this.list.push(newNote);
     },
-    async deleteNote(note: Note){
-      const note_to_be_deleted = await this.session.api('notes', note, 'DELETE');
-      console.log(note_to_be_deleted);
+    async deleteNote(_id: string = ''){
+      //console.log("IN STORE(TASKS) "+ handle)
+      const note_to_be_deleted = await this.session.api('notes/' + _id ,{},'DELETE');
+      //console.log(note_to_be_deleted[0]);
+      let i = this.list.map((note) => note._id).indexOf(_id);
+      this.list.splice(i,1);
+      
       //this.list.splice(note_to_be_deleted);
     }
 

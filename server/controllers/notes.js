@@ -32,6 +32,7 @@ app
             .catch(next);
     })
     .delete('/:id', (req, res, next) => {
+        console.log("DELETE USER-COPNTROLLERS_" + req.params.id);
         noteModel.remove(req.params.id)
             .then(note => res.json ({ success: true, errors: [], data: note }))
             .catch(next);
