@@ -35,9 +35,7 @@ const newNote = reactive<Note>(
                       Notes
                       </p>
                       <p class="panel-tabs">
-                        <a class="is-active">Groceries</a>
-                        <a>Wishlist</a>
-                        <a>Brain Dump</a>
+                        <!-- <a>Groceries</a> -->
                       </p>
                       <!--ADD NOTES -->
                 <add-notes :note="newNote" @save="notes.createNote(newNote)"></add-notes>
