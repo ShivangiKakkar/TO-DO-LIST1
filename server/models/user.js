@@ -146,7 +146,7 @@ module.exports = {
     login,
     fromToken,
     async getList(){
-        console.log("GET LIST (USERS_MODEL)");
+        //console.log("GET LIST (USERS_MODEL)");
         return (await collection.find().toArray()).map(x=> ({...x, password: undefined}) );
         
     }

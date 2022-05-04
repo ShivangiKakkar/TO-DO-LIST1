@@ -15,13 +15,20 @@ app
             .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
             .catch(next);
     })
+
+    .get('/todo/all', (req, res, next) => {
+        taskModel.getAll(req.user.handle)
+            .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
+            .catch(next);
+    })
+
     .get('/todo/:handle', (req, res, next) => {
         taskModel.getTodo(req.params.handle)
             .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
             .catch(next);
     })
     .get('/todo/myTasks/:handle', (req, res, next) => {
-        console.log("MYTASK--APII"+req.params.handle)
+        // console.log("MYTASK--APII"+req.params.handle)
         taskModel.getMyTasks(req.params.handle)
             .then(tasks => { res.json({ success: true, errors: [], data: tasks }) })
             .catch(next);
@@ -48,6 +55,15 @@ app
         console.log("PATCH TASK-CONTROLLERS-" + req.params.id);
         taskModel.update(req.params.id, req.body)
             .then(task => { res.json({ success: true, errors: [], data: task }) })
+            .catch(next);
+    })
+
+
+
+    .post('/:id', (req, res, next) => {
+        console.log("POST UPDATE TASK-CONTROLLERS-" + req.params.id, req.body);
+        taskModel.update(req.params.id, req.body)
+            .then(task => res.json({ success: true, errors: [], data: task }))
             .catch(next);
     })
 

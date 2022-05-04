@@ -11,10 +11,10 @@
     const route = useRoute();
     const tasks = useTasks();
     const session = useSession();
+  
+    // tasks.fetchAllTasks();
+    // tasks.myTasks();
     tasks.fetchTasks(route.params.handle as string);
-    //const mytasks = tasks.myTasks(route.params.handle as string);
-
-   
 
     const newTask = ref<Task>(
     { 
@@ -36,6 +36,7 @@
          }
     }
     }
+
 </script>
 
 <template>
@@ -49,9 +50,9 @@
                 <add-tasks :task="newTask" @save="saveTask()">
                 </add-tasks>
                 <p class="panel-tabs">
-                    <a :class="{ 'is-active': tasks.tab_selection == 'all_tasks' }" @click="tasks.tab_selection = 'all_tasks'">All Tasks</a>
-                    <a :class="{ 'is-active': tasks.tab_selection == 'assigned_to_me' }" @click="tasks.tab_selection = 'assigned_to_me'">Assigned to me</a>
-                    <a :class="{ 'is-active': tasks.tab_selection == 'completed' }" @click="tasks.tab_selection = 'completed'">Completed</a>
+                     <a :class="{ 'is-active': tasks.tab_selection == 'all_tasks' }" @click="tasks.tab_selection = 'all_tasks'">All Tasks</a>
+                     <a :class="{ 'is-active': tasks.tab_selection == 'assigned_to_me' }" @click="tasks.tab_selection = 'assigned_to_me'">Assigned to me</a>
+                     <a :class="{ 'is-active': tasks.tab_selection == 'completed' }" @click="tasks.tab_selection = 'completed'">Completed</a>
                 </p>
                 <!-- LOOP THROUGH TASKS -->
                 <div>
