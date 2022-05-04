@@ -44,7 +44,9 @@
                                 <i class="fa fa-sign-in"></i>
                             </span>
                             <span>Login</span>
+                            
                             </button>
+                            <!-- <button><span @click.prevent="session.GoogleLogin()">Login via Google</span></button> -->
                         </p>
                     </div>
                     </form>

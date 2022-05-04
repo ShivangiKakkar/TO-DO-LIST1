@@ -4,6 +4,7 @@ import * as users from "../models/user";
 import { useMessages } from "./notifications";
 import { api } from "./myFetch";
 import { defineStore } from "pinia";
+import { decodeJWT, loadScript } from "./utils";
 
 export const useSession = defineStore('session', {
     state: () => ({
@@ -11,6 +12,35 @@ export const useSession = defineStore('session', {
         destinationUrl: null as string | null,
     }),
     actions: {
+        // async GoogleLogin(){
+        //     await loadScript('https://accounts.google.com/gsi/client','google-signin');
+        //     const auth_client = google.accounts.oauth2.initTokenClient({
+        //         client_id: <string>import.meta.env.VITE_GOOGLE_CLIENT_ID,
+        //         scope: 'email profile',
+        //         //scope is usually url, its telling 
+        //         callback: async x => {
+        //             //https://www.googleapis.com/calendar/v3/
+        //             const user = await fetch('https://www.googleapis.com/oauth2/v3/userinfo?alt=json', {
+        //                 headers: {
+        //                     Authorization: `Bearer ${x.access_token}`,
+        //                 },
+        //             }).then(x => x.json());
+        //             console.log(user);
+        //             // const user = decodeJWT(x.credential);
+        //             // console.log(user);
+        //             this.user = {
+        //                 id: user.sub,
+        //                 email: user.email,
+        //                 firstname: user.given_name,
+        //                 lastname: user.family_name,
+        //                 pic: user.picture,
+        //                 handle: user.name,
+        //                 password: '',
+        //             }
+        //         }
+        //       });
+        //       auth_client.requestAccessToken();
+        // },
         async Login(email: string, password: string) {
             const messages = useMessages();
             try {
