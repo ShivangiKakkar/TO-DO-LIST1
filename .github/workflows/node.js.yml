@@ -35,10 +35,10 @@ jobs:
 
     - name: Copy static files & delete sources
       run: |
-          mkdir -p dist/server/public/
-          cp -a client/dist/. dist/server/public
-          cp -a server/. dist/server
-          cp package.json dist/
+          ls -a
+          mkdir -p server/public/
+          cp -a client/dist/. server/public
+          rm -r client .gitignore
           
     - name: Deploy 🚀 Github Pages
       uses: JamesIves/github-pages-deploy-action@v4.2.3
