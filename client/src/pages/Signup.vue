@@ -80,7 +80,7 @@ function signup(){
                 </p>
             </div>
             <img src="https://img.icons8.com/bubbles/50/000000/gmail-new.png"/>
-            // <!-- <img src="https://img.icons8.com/bubbles/50/000000/facebook-new.png"/> -->
+             <!-- <img src="https://img.icons8.com/bubbles/50/000000/facebook-new.png"/> -->
 
             </form>
         </div>

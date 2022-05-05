@@ -96,21 +96,21 @@
                         </span>
                         <span>Download 2022 Calendar</span>
                     </a>
+                    
                   </aside>
             </div>
+            
             <div class="column is-two-fifths">
-                
                 <!-- CARD -->
                 <month-edit :month="newMonth" @save="saveMonth()">
                 </month-edit>
-                <month-view :month="newMonth"></month-view>
 
                 <month-view v-for="month in months.list" :key= "month._id" :month="month"  @remove="months.deleteMonth(month._id)">
-                
                 </month-view>
               </div>
               <div class="column is-one-quarter">
-                  <!-- <month-view :month="newMonth"></month-view> -->
+                <!-- <notes/> -->
+                  <month-view :month="newMonth"></month-view>
                   <notes/>
               </div>             
         </div>
