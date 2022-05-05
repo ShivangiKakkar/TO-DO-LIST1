@@ -45,7 +45,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4.2.3
       with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: dist/server/public # The folder the action should deploy.
+          folder: server/public # The folder the action should deploy.
 
     - name: Deploy 🚀 to Heroku
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
