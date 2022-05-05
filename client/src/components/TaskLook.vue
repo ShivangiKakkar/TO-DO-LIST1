@@ -15,7 +15,7 @@ const { task } = defineProps<{task: Task}>();
 
             <div class="task_assignee">Assigned To: {{task.assignedTo}}</div>
 
-            <div class="task_author">Assigned by: {{task.user.handle}}</div>
+            <div class="task_author">Assigned by: {{task?.user?.handle}}</div>
 
             <div class="task_date">Due: {{task.date}}</div>
 

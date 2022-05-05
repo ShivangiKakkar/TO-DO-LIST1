@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Month } from "../models/months";
 const { month } = defineProps<{month: Month}>();
+
+
 </script>
 
 <template>
@@ -18,13 +20,13 @@ const { month } = defineProps<{month: Month}>();
               <div class="media">
                             <div class="media-left">
                                 <figure class="image is-48x48">
-                                    <img :src="month.user.pic" alt="Placeholder image">
+                                    <img :src="month?.user?.pic" alt="Placeholder image">
                                 </figure>
                             </div>
 
                             <div class="media-content">
-                                <p class="title is-4">{{month.user.firstname}} {{month.user.lastname}}</p>
-                                <p class="subtitle is-6">@{{month.user.handle}}</p>
+                                <p class="title is-4">{{month?.user?.firstname}} {{month?.user?.lastname}}</p>
+                                <p class="subtitle is-6">@{{month?.user?.handle}}</p>
                             </div>
                             
                 </div>

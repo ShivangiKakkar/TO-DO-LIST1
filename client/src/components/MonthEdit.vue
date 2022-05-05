@@ -20,7 +20,7 @@
                 </div>
                 <div class="field">
                     <div class="control">
-                        <button class="button is-primary" @click.prevent="$emit('save')">Update Month</button>
+                        <button class="button" @click.prevent="$emit('save')">Update Month</button>
                     </div>
                 </div>
             </form>
@@ -30,4 +30,7 @@
 </template>
 
 <style scoped>
+.button{
+    background-color: #FFC0CB;
+}
 </style>
