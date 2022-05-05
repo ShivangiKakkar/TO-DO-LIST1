@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { reactive } from 'vue';
+  import { ref } from 'vue';
   import { Month, useMonths } from '../models/months';
   import { useRoute } from "vue-router";
   import MonthView from "../components/MonthView.vue";
@@ -21,7 +21,7 @@
   const session = useSession();
   console.log("SESSION USER "+ session.user); //user object
   //console.log("SESSION USERS "+session.users.list);
-  const newMonth = reactive<Month>(
+  const newMonth = ref<Month>(
     { 
       src: "",
       caption: "",
@@ -31,6 +31,20 @@
       comments: [],
       isPublic: false
     } );
+  function saveMonth(){
+    if(newMonth){
+        months.createMonth(newMonth.value);
+        newMonth.value = {
+            src: "",
+            caption: "",
+            designer: "",
+            user: session.user,
+            likes: [],
+            comments: [],
+            isPublic: false
+         }
+    }
+    }
   
   const currentTab = "All";
   const prompt = "What's on your mind?";
@@ -87,15 +101,16 @@
             <div class="column is-two-fifths">
                 
                 <!-- CARD -->
-                <month-edit :month="newMonth" @save="months.createMonth(newMonth)">
+                <month-edit :month="newMonth" @save="saveMonth()">
                 </month-edit>
+                <month-view :month="newMonth"></month-view>
 
-                <month-view v-for="month in months.list" :key= "month._id" :month="month">
+                <month-view v-for="month in months.list" :key= "month._id" :month="month"  @remove="months.deleteMonth(month._id)">
                 
                 </month-view>
               </div>
               <div class="column is-one-quarter">
-                  <month-view :month="newMonth"></month-view>
+                  <!-- <month-view :month="newMonth"></month-view> -->
                   <notes/>
               </div>             
         </div>

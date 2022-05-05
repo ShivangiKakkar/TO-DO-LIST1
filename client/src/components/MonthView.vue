@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { Month } from "../models/months";
+import { Month, useMonths } from "../models/months";
+import { allUsers } from "../models/user";
 const { month } = defineProps<{month: Month}>();
+
+
+// const months = useMonths();
+// const user = allUsers();
 
 
 </script>
@@ -13,7 +18,7 @@ const { month } = defineProps<{month: Month}>();
           <div class="card">
             <div class="card-image">
               <figure class="image is-2by3">
-                        <img class="month_img" :src="month.src" alt="Placeholder image">
+                        <img class="month_img" :src="month.src || 'https://www.saturdaygift.com/wp-content/uploads/1.-White-Aesthetic-Wooden-Background-May-2022-Calendar-SaturdayGift.jpg'" alt="Placeholder image">
               </figure>
             </div>
             <div class="card-content">
@@ -34,20 +39,23 @@ const { month } = defineProps<{month: Month}>();
                             {{ month.caption }} 
                             <br />
                             <br>
-                            <time datetime="2016-1-1">03:30 PM - 30 Apr 2022</time>
+                            <time datetime="2016-1-1">03:30 PM - 6 May 2022</time>
                         </div>
                 </div>
                 
             <div class="card-footer">
               <p class="card-footer-item">
                 <span>Share on
-                  <a href="#">Facebook</a>
+                  <a target="_blank" href="https://www.facebook.com/">Facebook</a>
                 </span>
               </p>
               <p class="card-footer-item">
                 <span>Tweet on
-                  <a href="#">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/home">Twitter</a>
                 </span>
+              </p>
+              <p class="card-footer-item">
+                <a @click="$emit('remove')">Delete Post</a>
               </p>
             </div>
           </div>

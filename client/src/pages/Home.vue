@@ -23,7 +23,6 @@ import Footer from '../components/Footer.vue';
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">Weekly Planner</p>
-                                <p class="subtitle is-6">@demo</p>
                             </div>
                         </div>
                         <div class="content">
@@ -53,7 +52,6 @@ import Footer from '../components/Footer.vue';
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">Gratitude Journal</p>
-                                <p class="subtitle is-6">@demo</p>
                             </div>
                         </div>
 
@@ -87,7 +85,6 @@ import Footer from '../components/Footer.vue';
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">Fitness Planner</p>
-                                <p class="subtitle is-6">@demo</p>
                             </div>
                         </div>
 
@@ -118,7 +115,6 @@ import Footer from '../components/Footer.vue';
                             </div>
                             <div class="media-content">
                                 <p class="title is-4">Habit Tracker</p>
-                                <p class="subtitle is-6">@demo</p>
                             </div>
                         </div>
 

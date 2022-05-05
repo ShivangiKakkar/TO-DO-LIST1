@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { useSession } from '../models/session';
 import NotesLook from "./NotesLook.vue";
@@ -20,12 +20,22 @@ notes.fetchNotes(route.params.handle as string);
 
 const session = useSession();
 
-const newNote = reactive<Note>(
+const newNote = ref<Note>(
     { 
       title: "",
       creater: "",
       user: session.user
     });
+    function saveNote(){
+        if(newNote){
+        notes.createNote(newNote.value);
+        newNote.value = {
+          title: "",
+          creater: "",
+          user: session.user
+         }
+    }
+    }
 
 </script>
 <template>
@@ -38,7 +48,7 @@ const newNote = reactive<Note>(
                         <!-- <a>Groceries</a> -->
                       </p>
                       <!--ADD NOTES -->
-                <add-notes :note="newNote" @save="notes.createNote(newNote)"></add-notes>
+                <add-notes :note="newNote" @save="saveNote()"></add-notes>
                 <notes-look v-for="note in notes.list" :key="note._id" :note="note" @remove="notes.deleteNote(note._id)"></notes-look>
                    <!-- <div class="panel-block">
                     <button class="button is-danger is-outlined is-fullwidth">

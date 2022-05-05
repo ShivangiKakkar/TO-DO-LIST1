@@ -9,12 +9,12 @@
             <form class="card-content">    
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="text" v-model="month.src" placeholder="Image"/>
+                        <input class="input" type="text" v-model="month.src" placeholder="Share an image url"/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea" v-model="month.caption" placeholder="Caption">
+                        <textarea class="textarea" v-model="month.caption" placeholder="Write Something...">
                         </textarea>
                     </div>
                 </div>
