@@ -4,9 +4,11 @@ import { Task } from "../models/tasks";
 import { allUsers } from "../models/user";
 const { task } = defineProps<{task: Task}>();
 
-
 const users = allUsers()
 const list = users.fetchUsers();
+
+
+
 
 
 </script>
@@ -15,12 +17,42 @@ const list = users.fetchUsers();
 <template>
     <div class="panel-block">
         <input class="input" type="text" v-model="task.title" placeholder="Add a new task">
-        <div class="select">
-            <select v-model="task.assignedTo">
+        <div>
+            <p class="content"><b>Selected:</b> {{ selected }}</p>
+            <o-field label="Find a user">
+            <o-autocomplete
+                
+                placeholder="Search a user"
+                field="title"
+                :loading="isFetching"
+                check-infinite-scroll
+                :debounce-typing="500"
+                @typing="getAsyncData"
+                @select="" => selected = option"
+                @infinite-scroll="getMoreAsyncData"
+            >
+                <template v-slot-scope="props">
+                <div class="media">
+                    <div class="media-left">
+                    <img width="32" :src="`${prop.user.pic}`" />
+                    </div>
+                    <div class="media-content">
+                    {{ props }}
+                </div>
+                </div>
+                </template>
+                <template v-slot="footer">
+                <span v-show="$options" class="has-text-grey"> Thats it! No more movies found. </span>
+                </template>
+            </o-autocomplete>
+            </o-field>
+
+            <!-- <select v-model="task.assignedTo">
+                
                 <option v-for="user in users.list" :key="users.$id" :user="user">
                 {{ user.handle }}
                 </option>
-            </select>
+            </select> -->
         </div>
 
         <div class="date is-normal">
@@ -34,7 +66,6 @@ const list = users.fetchUsers();
         </div>
     </div>
 </template>
-
 
 <style scoped>
 

@@ -1,4 +1,4 @@
-import { trackSlotScopes } from '@vue/compiler-core';
+
 import { defineStore } from 'pinia'
 import { useSession } from './session';
 import { User } from './user';

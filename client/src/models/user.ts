@@ -11,7 +11,15 @@ export const allUsers = defineStore('users', {
         async fetchUsers() {
             const allusers = await this.session.api('users');
             this.list = allusers;
-          }
+          },
+        async searchUser(handle: string = '') {
+            const users = await this.session.api('users/finduser/' + {searchUser});
+            this.list = users;
+            return this.list.filter(option => {
+              return option.handle.toLowerCase().includes(handle.toLowerCase());
+            
+            
+            }
         }
 })
 
