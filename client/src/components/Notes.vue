@@ -26,6 +26,7 @@ const newNote = ref<Note>(
       creater: "",
       user: session.user
     });
+
     function saveNote(){
         if(newNote){
         notes.createNote(newNote.value);

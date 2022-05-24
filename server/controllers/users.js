@@ -13,9 +13,9 @@ app
             res.send({ success: true, errors: [],data: users});
         }).catch(next);
     })
-    .get('/finduser/:finduser', (req, res, next) => {
+    .get('/finduser/finduser', (req, res, next) => {
         console.log("SEARCH "+req.params.finduser)
-        userModel.search(req.params.s)
+        userModel.search(req.params.finduser)
         .then(user => {
             res.send({ success: true, errors: [],data: user});
         }).catch(next);
