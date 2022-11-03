@@ -13,13 +13,13 @@ app
             res.send({ success: true, errors: [],data: users});
         }).catch(next);
     })
-    .get('/finduser/finduser', (req, res, next) => {
-        console.log("SEARCH "+req.params.finduser)
-        userModel.search(req.params.finduser)
-        .then(user => {
-            res.send({ success: true, errors: [],data: user});
-        }).catch(next);
-    })
+    // .get('/finduser/finduser', (req, res, next) => {
+    //     console.log("SEARCH "+req.params.finduser)
+    //     userModel.search(req.params.finduser)
+    //     .then(user => {
+    //         res.send({ success: true, errors: [],data: user});
+    //     }).catch(next);
+    // })
     .get('/handle/:handle', (req, res, next) => {
         console.log("INSIDE USER CONTROLLER")
         console.log("HANDLE CHECK-INSIDE USER_CONTROLLER "+req.params.handle)

@@ -7,14 +7,14 @@
     import TaskLook from "../components/TaskLook.vue";
     import Notes from "../components/Notes.vue";
     import { useSession } from "../models/session";
-    import { allUsers } from "../models/user";
+    // import { allUsers } from "../models/user";
 
     const route = useRoute();
     const tasks = useTasks();
     const session = useSession();
 
-    const users = allUsers()
-    const list = users.fetchUsers();
+    // const users = allUsers()
+    // const list = users.fetchUsers();
   
     // tasks.fetchAllTasks();
     // tasks.myTasks();
@@ -45,9 +45,9 @@
 
 <template>
 <div class="section">
-    <div>
-        <!-- <auto-complete></auto-complete> -->
-    </div>
+    <!-- <div>
+         <auto-complete></auto-complete>
+    </div> -->
     <div class="columns">
 
         <div class="section column is-two-thirds">

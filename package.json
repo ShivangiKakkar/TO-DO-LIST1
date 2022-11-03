@@ -13,7 +13,6 @@
     "url": "git+https://github.com/ShivangiKakkar/TO-DO-LIST1.git"
   },
   "dependencies": {
-    "@oruga-ui/oruga-next": "^0.5.5",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

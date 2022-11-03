@@ -65,16 +65,16 @@ async function get(id){
     return {...user, password: undefined};
 }
 
-async function search(s){
-    console.log("Searching: " + s);
-    const users = await collection.find({
-        $or: [
-            {firstname: {$regex: s, $options: 'i'}},
-            {lastname: {$regex: s, $options: 'i'}},
-            {handle: {$regex: s, $options: 'i'}}
-        ]}).toArray();
-        return users.map(user => ({...user, password: undefined}));
-}
+// async function search(s){
+//     console.log("Searching: " + s);
+//     const users = await collection.find({
+//         $or: [
+//             {firstname: {$regex: s, $options: 'i'}},
+//             {lastname: {$regex: s, $options: 'i'}},
+//             {handle: {$regex: s, $options: 'i'}}
+//         ]}).toArray();
+//         return users.map(user => ({...user, password: undefined}));
+// }
 
 async function getByHandle(handle){
     //console.log("HANDLE(USERS_MODEL): "+handle);
@@ -139,7 +139,7 @@ module.exports = {
     collection, 
     seed,
     getByHandle,
-    search,
+    // search,
     async create(user){
         user.id = ++highestId;
         if(!user.handle){
